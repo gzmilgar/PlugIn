@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension point="org.eclipse.ui.commands">
+      <command
+            id="com.cleancore.analyzer.analyzeCommand"
+            name="Analyze for Clean Core"
+            description="Analyze ABAP source code for Clean Core compliance">
+      </command>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.cleancore.analyzer.analyzeCommand"
+            class="com.cleancore.analyzer.handlers.AnalyzeHandler">
+      </handler>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu id="com.cleancore.analyzer.menu"
+               label="Clean Core">
+            <command
+                  commandId="com.cleancore.analyzer.analyzeCommand"
+                  label="Analyze Current File"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <command
+               commandId="com.cleancore.analyzer.analyzeCommand"
+               label="Analyze for Clean Core"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.cleancore.analyzer.analyzeCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+K">
+      </key>
+   </extension>
+
+   <extension point="org.eclipse.ui.views">
+      <category
+            id="com.cleancore.analyzer.viewCategory"
+            name="Clean Core Analyzer">
+      </category>
+      <view
+            id="com.cleancore.analyzer.resultView"
+            name="Clean Core Analysis Results"
+            class="com.cleancore.analyzer.ui.CleanCoreResultView"
+            category="com.cleancore.analyzer.viewCategory"
+            allowMultiple="false">
+      </view>
+   </extension>
+
+</plugin>
