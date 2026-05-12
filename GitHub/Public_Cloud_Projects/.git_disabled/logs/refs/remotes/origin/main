@@ -1,2 +1,0 @@
-0000000000000000000000000000000000000000 185312e29256594dd1efad08194282c5aabfa12e gzmilgar <gzmilgar@gmail.com> 1730707765 +0300	fetch --progress --prune --recurse-submodules=on-demand origin: storing head
-185312e29256594dd1efad08194282c5aabfa12e 2e1ac76c73bdd7ff3239dcfd7efb07ef422e5d72 gzmilgar <gzmilgar@gmail.com> 1731339403 +0300	fetch --progress --prune --recurse-submodules=on-demand origin: fast-forward
