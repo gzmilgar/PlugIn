@@ -1,0 +1,14 @@
+--batch_e985-646c-1768
+content-type: application/http
+content-transfer-encoding: binary
+
+GET ProductListSet?sap-client=100&$filter=Vbeln%20eq%20%274000005397%27%20and%20VbelnVl%20eq%20%278100003555%27 HTTP/1.1
+sap-cancel-on-close: true
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: tr
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+
+
+--batch_e985-646c-1768--

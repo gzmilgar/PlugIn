@@ -20,6 +20,39 @@ public class ABAPAnalyzer {
         DB_RULES.add("CC004"); DB_RULES.add("CC005");
     }
 
+    // ── Effort (gun/adam) ──────────────────────────────────────────
+    private static final Map<String, Double> EFFORT_MAP = new HashMap<>();
+    static {
+        // DB Access: Table -> CDS View
+        EFFORT_MAP.put("CC001", 0.25);  // SELECT
+        EFFORT_MAP.put("CC002", 0.25);  // INSERT
+        EFFORT_MAP.put("CC003", 0.25);  // UPDATE
+        EFFORT_MAP.put("CC004", 0.25);  // DELETE
+        EFFORT_MAP.put("CC005", 0.25);  // MODIFY
+        EFFORT_MAP.put("CC006", 1.0);   // EXEC SQL
+        // API Usage: BAPI/FM -> Released API
+        EFFORT_MAP.put("CC010", 2.0);   // CALL TRANSACTION -> API
+        EFFORT_MAP.put("CC011", 1.0);   // SUBMIT -> API
+        EFFORT_MAP.put("CC012", 2.0);   // Kernel Call
+        EFFORT_MAP.put("CC013", 3.0);   // Dynamic Program Generation
+        EFFORT_MAP.put("CC014", 1.5);   // RFC Destination
+        // UI
+        EFFORT_MAP.put("CC020", 1.0);   // Classic ALV -> CL_SALV / Fiori
+        EFFORT_MAP.put("CC021", 0.5);   // GUI_DOWNLOAD/UPLOAD
+        EFFORT_MAP.put("CC022", 5.0);   // Dynpro -> Fiori
+        EFFORT_MAP.put("CC023", 3.0);   // Selection Screen -> Fiori
+        EFFORT_MAP.put("CC024", 0.5);   // WRITE -> Fiori/ALV
+        EFFORT_MAP.put("CC025", 0.5);   // Popup FM
+        // Obsolete Syntax
+        EFFORT_MAP.put("CC030", 0.5);   // FORM/PERFORM -> CLASS/METHOD
+        EFFORT_MAP.put("CC031", 0.25);  // TABLES declaration
+        EFFORT_MAP.put("CC032", 0.25);  // WITH HEADER LINE
+        EFFORT_MAP.put("CC033", 0.25);  // OCCURS
+        EFFORT_MAP.put("CC034", 0.1);   // Obsolete arithmetic
+        // Architecture
+        EFFORT_MAP.put("CC040", 0.5);   // Dynamic ASSIGN
+    }
+
     private static final Set<String> SKIP = new HashSet<>();
     static {
         SKIP.add("TABLE"); SKIP.add("DATA"); SKIP.add("CORRESPONDING");
@@ -143,7 +176,10 @@ public class ABAPAnalyzer {
                 }
                 Finding f = rule.check(stmt.getText(), stmt.getStartLine(), stmt.getEndLine());
                 if (f != null) {
-                    findings.add(enrichFinding(f));
+                    f = enrichFinding(f);
+                    Double effort = EFFORT_MAP.get(f.getRuleId());
+                    if (effort != null) f.setEffortDays(effort);
+                    findings.add(f);
                 }
             }
         }

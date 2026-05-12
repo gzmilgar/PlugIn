@@ -1,0 +1,559 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Ilgar, Gizem</Author>
+  <LastAuthor>Ilgar, Gizem</LastAuthor>
+  <Created>2021-11-04T09:52:26Z</Created>
+  <LastSaved>2021-11-04T09:55:02Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10735</WindowHeight>
+  <WindowWidth>24192</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s16" ss:Name="Comma">
+   <NumberFormat ss:Format="_(* #,##0.00_);_(* \(#,##0.00\);_(* &quot;-&quot;??_);_(@_)"/>
+  </Style>
+  <Style ss:ID="m500080072">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+  </Style>
+  <Style ss:ID="m500080092">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#000000"/>
+   <NumberFormat ss:Format="dd/mm/yyyy;@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="16"
+    ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s70" ss:Parent="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+   <NumberFormat ss:Format="#,###,###,###,##0.00"/>
+   <Protection x:HideFormula="1"/>
+  </Style>
+  <Style ss:ID="s72" ss:Parent="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior/>
+   <NumberFormat ss:Format="0"/>
+   <Protection x:HideFormula="1"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="9"
+    ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s75" ss:Parent="s16">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat
+    ss:Format="_-* #,##0\ _T_L_-;\-* #,##0\ _T_L_-;_-* \-??\ _T_L_-;_-@_-"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s76">
+   <Alignment ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="8"
+    ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s79">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Bold="1"/>
+   <NumberFormat ss:Format="000,000,000,000"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s81">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:CharSet="162" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000" ss:Bold="1"/>
+   <Interior ss:Color="#FFE219" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s82">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="9"
+    ss:Color="#000000" ss:Bold="1" ss:Italic="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s83">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="8"
+    ss:Color="#000000" ss:Bold="1" ss:Italic="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s84">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="8"
+    ss:Color="#000000" ss:Bold="1" ss:Italic="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s85">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="7.5"
+    ss:Color="#000000" ss:Bold="1" ss:Italic="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="#,###,###,###,##0.00"/>
+  </Style>
+  <Style ss:ID="s86">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:CharSet="162" x:Family="Swiss" ss:Size="7.5"
+    ss:Color="#000000" ss:Bold="1" ss:Italic="1"/>
+   <Interior ss:Color="#F8F8F8" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="#,###,###,###,##0.00"/>
+  </Style>
+  <Style ss:ID="s87">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:CharSet="162" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s89">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Center"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:CharSet="162" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000" ss:Bold="1"/>
+   <NumberFormat ss:Format="#,##0.00\ _T_L"/>
+   <Protection ss:Protected="0"/>
+  </Style>
+  <Style ss:ID="s90">
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <NumberFormat ss:Format="@"/>
+   <Protection x:HideFormula="1" ss:Protected="0"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Sheet1">
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="10" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="52.363636363636367"
+   ss:DefaultRowHeight="15.054545454545453">
+   <Column ss:Width="120.43636363636362"/>
+   <Column ss:Width="151.20000000000002"/>
+   <Column ss:Width="98.181818181818173"/>
+   <Column ss:Width="134.83636363636364"/>
+   <Column ss:Width="85.74545454545455"/>
+   <Row ss:AutoFitHeight="0" ss:Height="36.654545454545449">
+    <Cell ss:MergeDown="3" ss:StyleID="m500080072"><Data ss:Type="String">VB MÜŞTERİ NUMARASI</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">Ödeme Tarihi </Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="DateTime">2021-02-23T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">Toplam Ödenecek Tutar ve Personel Sayısı</Data></Cell>
+    <Cell ss:MergeDown="4" ss:StyleID="m500080092"/>
+   </Row>
+   <Row ss:Height="20.290909090909089">
+    <Cell ss:Index="2" ss:StyleID="s68"><Data ss:Type="String">Şube Kodu</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">1175</Data><Comment
+      ss:Author="Author"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><U><Font
+          html:Face="Arial" x:CharSet="162" x:Family="Swiss" html:Size="10"
+          html:Color="#000000">Şube Kodu:</Font></U></B><Font html:Face="Arial"
+        x:CharSet="162" x:Family="Swiss" html:Size="10"> Şubenizden öğrenebilirsiniz. 3 karakter olmak zorundadır. </Font></ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="Number">300</Data></Cell>
+   </Row>
+   <Row ss:Height="20.945454545454545">
+    <Cell ss:Index="2" ss:StyleID="s68"><Data ss:Type="String">Kurum Kodu</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">36</Data><Comment
+      ss:Author="Author"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><B><U><Font
+          html:Face="Arial" x:CharSet="162" x:Family="Swiss" html:Size="10"
+          html:Color="#000000">Kurum Kodunuz:</Font></U></B><Font html:Face="Arial"
+        x:CharSet="162" x:Family="Swiss" html:Size="10"> Şubenizden öğrenebilirsiniz.  &#10;2 karakter olmak zorundadır. </Font></ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="20.290909090909089">
+    <Cell ss:Index="2" ss:StyleID="s68"><Data ss:Type="String">Ay</Data></Cell>
+    <Cell ss:StyleID="s74"><Data ss:Type="Number">2</Data><Comment
+      ss:Author="Author"><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Arial" x:CharSet="162" x:Family="Swiss" html:Size="10">Lütfen Listeden Ay Kodunuzu Seçiniz&#10;</Font></ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">Para Birimi</Data></Cell>
+   </Row>
+   <Row ss:Height="15.709090909090909">
+    <Cell ss:StyleID="s76"/>
+    <Cell ss:StyleID="s77"><Data ss:Type="String">Ödeme Türü</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">E</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">TL</Data></Cell>
+   </Row>
+   <Row ss:Height="15.709090909090909">
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Personel Adı Soyadı</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Personel Hesap No</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Personel Sicil No</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Meblağ</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Personel Iban No</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="65.454545454545453">
+    <Cell ss:StyleID="s82"><Data ss:Type="String"> Personel Adı Soyadı</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">17 haneli bankomat hesap numarasını yazınız.&#10;( 001580..……. )</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">Sicl Hanesi 12 Karakteri geçmemelidir.</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">Miktarı giriniz,Kuruş  hanesi 2 karakterdir.&#10;İgili kişinin miktarı yok ise; sadece sıfır (0) giriniz.</Data></Cell>
+    <Cell ss:StyleID="s86"><Data ss:Type="String">26 haneli Iban numarasını yazınız.&#10;(TR……………………. )</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">AAAAA AAAAAAAAA</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String" x:Ticked="1">00158001111111111</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">300</Data></Cell>
+    <Cell ss:StyleID="s90"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">AAAAA AAAAAAAAA</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String" x:Ticked="1">00158001111111111</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">300</Data></Cell>
+    <Cell ss:StyleID="s90"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">AAAAA AAAAAAAAA</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String" x:Ticked="1">00158001111111111</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">300</Data></Cell>
+    <Cell ss:StyleID="s90"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>6</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C1:R10C4</Range>
+   <InputHide/>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R1C1,R2C2:R5C2</Range>
+   <Qualifier>LessOrEqual</Qualifier>
+   <ComboHide/>
+   <Min>0</Min>
+   <Max>0</Max>
+   <InputHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C4</Range>
+   <Type>List</Type>
+   <UseBlank/>
+   <CellRangeList/>
+   <Value>&quot;Para Birimini Seçiniz:,TL,USD,EUR&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R3C3</Range>
+   <Type>TextLength</Type>
+   <Qualifier>Equal</Qualifier>
+   <UseBlank/>
+   <ComboHide/>
+   <Value>2</Value>
+   <InputHide/>
+   <ErrorMessage>Kurum Kodu İki Hane Olmalıdır.&#10;Girdiğiniz Bilgiyi Kontrol Ediniz.</ErrorMessage>
+   <ErrorTitle>DİKKAT</ErrorTitle>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R5C3</Range>
+   <Type>List</Type>
+   <UseBlank/>
+   <CellRangeList/>
+   <Value>&quot;ÖDEME TÜRÜNÜ SEÇİNİZ,ALACAK TÜRLERİ:, M, V, E, B, P, D, BORC TÜRLERİ:, K, A, S&quot;</Value>
+   <InputHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R4C3</Range>
+   <Type>List</Type>
+   <UseBlank/>
+   <CellRangeList/>
+   <Value>&quot;AY KODUNU SEÇİNİZ,01,02,03,04,05,06,07,08,09,10,11,12&quot;</Value>
+   <InputHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C3</Range>
+   <Type>TextLength</Type>
+   <Qualifier>Equal</Qualifier>
+   <UseBlank/>
+   <ComboHide/>
+   <Value>3</Value>
+   <InputHide/>
+   <ErrorMessage>3 Karakter giriniz.</ErrorMessage>
+   <ErrorTitle>Dikkat</ErrorTitle>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R1C4:R3C4</Range>
+   <Type>Decimal</Type>
+   <ComboHide/>
+   <Min>0</Min>
+   <Max>9999999999999.99</Max>
+   <InputHide/>
+  </DataValidation>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C1</Range>
+   <Condition>
+    <Value1>AND(COUNTIF(R6C1:R6C1, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R6C2:R6C5</Range>
+   <Condition>
+    <Value1>AND(COUNTIF(R6C2:R6C5, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C2</Range>
+   <Condition>
+    <Value1>ISERROR(SEARCH(&quot;001580&quot;,RC))</Value1>
+    <Format Style='color:#0066FF;font-weight:700'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(COUNTIF(R8C2:R8C2, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R8C5</Range>
+   <Condition>
+    <Value1>AND(COUNTIF(R8C5:R8C5, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C2</Range>
+   <Condition>
+    <Value1>ISERROR(SEARCH(&quot;001580&quot;,RC))</Value1>
+    <Format Style='color:#0066FF;font-weight:700'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(COUNTIF(R9C2:R9C2, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R9C5</Range>
+   <Condition>
+    <Value1>AND(COUNTIF(R9C5:R9C5, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C2</Range>
+   <Condition>
+    <Value1>ISERROR(SEARCH(&quot;001580&quot;,RC))</Value1>
+    <Format Style='color:#0066FF;font-weight:700'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(COUNTIF(R10C2:R10C2, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R10C5</Range>
+   <Condition>
+    <Value1>AND(COUNTIF(R10C5:R10C5, RC)&gt;1,NOT(ISBLANK(RC)))</Value1>
+    <Format Style='background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+ </Worksheet>
+</Workbook>

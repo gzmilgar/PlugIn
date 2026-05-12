@@ -1,0 +1,23 @@
+--batch_d21d-4f1c-0086
+content-type: multipart/mixed; boundary=changeset_a965-1748-aa30
+
+--changeset_a965-1748-aa30
+content-type: application/http
+content-transfer-encoding: binary
+
+POST ApproveSet?sap-client=100 HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: tr
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+x-csrf-token: 8ny1FYo8EbH_dfopC1B15w==
+Content-Type: application/json
+Content-Length: 26
+
+{
+  "IvVbelnVl" : "8100012715"
+}
+--changeset_a965-1748-aa30--
+
+--batch_d21d-4f1c-0086--

@@ -1,0 +1,9 @@
+{
+  "to_KoliKapat" : [
+
+  ],
+  "IvIstasyon" : "MASA-9",
+  "IvKargo" : "MNG",
+  "IvMaliTeslimAlan" : "TURAN",
+  "IvTeslimat" : "8100004604"
+}

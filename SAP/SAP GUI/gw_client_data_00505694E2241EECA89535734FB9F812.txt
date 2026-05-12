@@ -1,0 +1,24 @@
+--batch_6085-45cd-0366
+content-type: multipart/mixed; boundary=changeset_a0ce-450d-1322
+
+--changeset_a0ce-450d-1322
+content-type: application/http
+content-transfer-encoding: binary
+
+POST CollectFinishSet?sap-client=100 HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: tr
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+x-csrf-token: YGNC2gPmgtOUZ3NCwTmECQ==
+Content-Type: application/json
+Content-Length: 49
+
+{
+  "IvVbeln" : "4000012625",
+  "IvVbelnVl" : "8100012624"
+}
+--changeset_a0ce-450d-1322--
+
+--batch_6085-45cd-0366--

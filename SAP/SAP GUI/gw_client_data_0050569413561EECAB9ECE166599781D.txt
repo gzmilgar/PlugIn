@@ -1,0 +1,90 @@
+--batch_d60e-9503-5c34
+content-type: multipart/mixed; boundary=changeset_d237-a407-83a2
+
+--changeset_d237-a407-83a2
+content-type: application/http
+content-transfer-encoding: binary
+
+POST ProductHeaderSet?sap-client=100 HTTP/1.1
+sap-contextid-accept: header
+Accept: application/json
+Accept-Language: tr
+DataServiceVersion: 2.0
+MaxDataServiceVersion: 2.0
+x-csrf-token: bsRDjQTpicrRNdRBEnpZ4g==
+Content-Type: application/json
+Content-Length: 1132
+
+{
+  "to_ProductItems" : [
+    {
+      "Mandt" : "",
+      "Vbeln" : "4000005397",
+      "VbelnVl" : "8100003555",
+      "Exidv" : "8000002431",
+      "Matnr" : "5",
+      "Maktx" : "HARIBO SOLUCAN JELIBON SEKER 250GR.",
+      "Ean11" : "2850001000000",
+      "Werks" : "M001",
+      "Lgort" : "1001",
+      "Ntgew" : "452.900",
+      "Gewei" : "GR",
+      "Vrkme" : "KL",
+      "Lfimg" : "5.000",
+      "Meins" : "ADT",
+      "Labst" : "0.000",
+      "ZzTotalPick" : "30.000",
+      "ZzKalan" : "45.000",
+      "ZzPick" : "2.000",
+      "ZzTotalPickAdt" : "450.000",
+      "ZzKalanAdt" : "675.000",
+      "ZzPickAdt" : "30.000",
+      "LfimgAdt" : "75.000",
+      "MeinsAdt" : "ADT",
+      "LabstAdt" : "0.000",
+      "Hatali" : false,
+      "PicUrl" : "",
+      "Bulunamadi" : false
+    },
+    {
+      "Mandt" : "",
+      "Vbeln" : "4000005397",
+      "VbelnVl" : "8100003555",
+      "Exidv" : "8000002431",
+      "Matnr" : "5",
+      "Maktx" : "HARIBO SOLUCAN JELIBON SEKER 250GR.",
+      "Ean11" : "1118687687687",
+      "Werks" : "M001",
+      "Lgort" : "1001",
+      "Ntgew" : "452.900",
+      "Gewei" : "GR",
+      "Vrkme" : "ADT",
+      "Lfimg" : "5.000",
+      "Meins" : "ADT",
+      "Labst" : "0.000",
+      "ZzTotalPick" : "1.000",
+      "ZzKalan" : "4.000",
+      "ZzPick" : "1.000",
+      "ZzTotalPickAdt" : "1.000",
+      "ZzKalanAdt" : "4.000",
+      "ZzPickAdt" : "1.000",
+      "LfimgAdt" : "5.000",
+      "MeinsAdt" : "ADT",
+      "LabstAdt" : "0.000",
+      "Hatali" : false,
+      "PicUrl" : "",
+      "Bulunamadi" : false
+    }
+  ],
+  "to_ProductReturnItems" : [
+    {
+
+    }
+  ],
+  "IvOkutulanMiktar" : "1",
+  "IvBarkod" : "2850001000000",
+  "IvBirim" : "KL"
+}
+--changeset_d237-a407-83a2--
+
+--batch_d60e-9503-5c34--

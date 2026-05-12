@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uet="http://uetds.unetws.udhb.gov.tr/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <uet:ipListele>
+         <wsuser>
+            <kullaniciAdi>445121</kullaniciAdi>
+            <sifre>3DBNTTDXTU</sifre>
+         </wsuser>
+      </uet:ipListele>
+   </soapenv:Body>
+</soapenv:Envelope>

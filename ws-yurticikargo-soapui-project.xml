@@ -1,0 +1,2023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="480261b8-6716-4ffe-903c-4d5cfc277522" activeEnvironment="Default" name="ws.yurticikargo" resourceRoot="" soapui-version="5.7.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="26f6c573-56ec-4dc6-bb4d-319790663342" wsaVersion="NONE" name="WsReportWithReferenceServicesBinding" type="wsdl" bindingName="{http://yurticikargo.com.tr/sswIntegrationServices}WsReportWithReferenceServicesBinding" soapVersion="1_1" anonymous="optional" definition="https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices?wsdl"><con:part><con:url>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices?wsdl</con:url><con:content><![CDATA[<definitions name="KOPSWebServices" targetNamespace="http://yurticikargo.com.tr/sswIntegrationServices" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://yurticikargo.com.tr/WSExceptions/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://yurticikargo.com.tr/sswIntegrationServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xs:schema targetNamespace="http://yurticikargo.com.tr/WSExceptions/" version="1.0" xmlns:tns="http://yurticikargo.com.tr/WSExceptions/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="YurticikargoWSException" type="tns:YurticikargoWSException"/>
+      <xs:complexType name="YurticikargoWSException">
+        <xs:sequence>
+          <xs:element name="errorCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="errText" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://yurticikargo.com.tr/sswIntegrationServices" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://yurticikargo.com.tr/WSExceptions/"/>
+      <xs:element name="CustParamsVO" type="tns:CustParamsVO"/>
+      <xs:element name="CustomerVO" type="tns:CustomerVO"/>
+      <xs:element name="DocCargoField2VO" type="tns:DocCargoField2VO"/>
+      <xs:element name="DocCargoVO" type="tns:DocCargoVO"/>
+      <xs:element name="InvCustParamsVO" type="tns:InvCustParamsVO"/>
+      <xs:element name="InvDocField2VO" type="tns:InvDocField2VO"/>
+      <xs:element name="ShippingDataDetailVO" type="tns:ShippingDataDetailVO"/>
+      <xs:element name="ShippingDataTrnVO" type="tns:ShippingDataTrnVO"/>
+      <xs:element name="ShippingDataV2DetailVO" type="tns:ShippingDataV2DetailVO"/>
+      <xs:element name="ShippingDataV3DetailVO" type="tns:ShippingDataV3DetailVO"/>
+      <xs:element name="ShippingDetailResponseVO" type="tns:ShippingDetailResponseVO"/>
+      <xs:element name="TrackingDetailVO" type="tns:TrackingDetailVO"/>
+      <xs:element name="TrackingParamsVO" type="tns:TrackingParamsVO"/>
+      <xs:element name="UnitParamsVO" type="tns:UnitParamsVO"/>
+      <xs:element name="XShippingV2DetailVO" type="tns:XShippingV2DetailVO"/>
+      <xs:element name="YurticikargoWSException" nillable="true" type="ns1:YurticikargoWSException"/>
+      <xs:element name="getDeliveryCollectionInfoByReference" type="tns:getDeliveryCollectionInfoByReference"/>
+      <xs:element name="getDeliveryCollectionInfoByReferenceResponse" type="tns:getDeliveryCollectionInfoByReferenceResponse"/>
+      <xs:element name="listIncomingWithDocCargoReference" type="tns:listIncomingWithDocCargoReference"/>
+      <xs:element name="listIncomingWithDocCargoReferenceResponse" type="tns:listIncomingWithDocCargoReferenceResponse"/>
+      <xs:element name="listInvDocInterfaceWithTrnCenter" type="tns:listInvDocInterfaceWithTrnCenter"/>
+      <xs:element name="listInvDocInterfaceWithTrnCenterResponse" type="tns:listInvDocInterfaceWithTrnCenterResponse"/>
+      <xs:element name="listInvDocumentByCustIdV2" type="tns:listInvDocumentByCustIdV2"/>
+      <xs:element name="listInvDocumentByCustIdV2Response" type="tns:listInvDocumentByCustIdV2Response"/>
+      <xs:element name="listInvDocumentByGrpSpecialField" type="tns:listInvDocumentByGrpSpecialField"/>
+      <xs:element name="listInvDocumentByGrpSpecialFieldResponse" type="tns:listInvDocumentByGrpSpecialFieldResponse"/>
+      <xs:element name="listInvDocumentByReferenceWithPayer" type="tns:listInvDocumentByReferenceWithPayer"/>
+      <xs:element name="listInvDocumentByReferenceWithPayerResponse" type="tns:listInvDocumentByReferenceWithPayerResponse"/>
+      <xs:element name="listInvDocumentByTrackingNumber" type="tns:listInvDocumentByTrackingNumber"/>
+      <xs:element name="listInvDocumentByTrackingNumberResponse" type="tns:listInvDocumentByTrackingNumberResponse"/>
+      <xs:element name="listInvDocumentByWaybillNo" type="tns:listInvDocumentByWaybillNo"/>
+      <xs:element name="listInvDocumentByWaybillNoResponse" type="tns:listInvDocumentByWaybillNoResponse"/>
+      <xs:element name="listInvDocumentInterfaceByReference" type="tns:listInvDocumentInterfaceByReference"/>
+      <xs:element name="listInvDocumentInterfaceByReferenceResponse" type="tns:listInvDocumentInterfaceByReferenceResponse"/>
+      <xs:element name="listInvDocumentInterfaceWithFailedDeliveryV2" type="tns:listInvDocumentInterfaceWithFailedDeliveryV2"/>
+      <xs:element name="listInvDocumentInterfaceWithFailedDeliveryV2Response" type="tns:listInvDocumentInterfaceWithFailedDeliveryV2Response"/>
+      <xs:element name="listInvDocumentWithCustId" type="tns:listInvDocumentWithCustId"/>
+      <xs:element name="listInvDocumentWithCustIdResponse" type="tns:listInvDocumentWithCustIdResponse"/>
+      <xs:element name="listInvDocumentWithDocDateInvCustId" type="tns:listInvDocumentWithDocDateInvCustId"/>
+      <xs:element name="listInvDocumentWithDocDateInvCustIdResponse" type="tns:listInvDocumentWithDocDateInvCustIdResponse"/>
+      <xs:element name="listNgiShipping" type="tns:listNgiShipping"/>
+      <xs:element name="listNgiShippingResponse" type="tns:listNgiShippingResponse"/>
+      <xs:element name="listNgiShippingWithDocId" type="tns:listNgiShippingWithDocId"/>
+      <xs:element name="listNgiShippingWithDocIdResponse" type="tns:listNgiShippingWithDocIdResponse"/>
+      <xs:element name="listNgiShippingWithPayer" type="tns:listNgiShippingWithPayer"/>
+      <xs:element name="listNgiShippingWithPayerResponse" type="tns:listNgiShippingWithPayerResponse"/>
+      <xs:element name="listOutboundWithDocCargoReference" type="tns:listOutboundWithDocCargoReference"/>
+      <xs:element name="listOutboundWithDocCargoReferenceResponse" type="tns:listOutboundWithDocCargoReferenceResponse"/>
+      <xs:complexType name="listInvDocumentInterfaceByReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docIdArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustParamsVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invCustIdArray" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="senderCustIdArray" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="receiverCustIdArray" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentInterfaceByReferenceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDataResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDataDetailVOArray" nillable="true" type="tns:ShippingDataDetailVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="baseResultVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="outFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="outResult" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ShippingDataDetailVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionErrCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="waybillNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReceiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDelFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docType" type="xs:string"/>
+          <xs:element minOccurs="0" name="docTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="shipmentDistance" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryType" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="product" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesi" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesiKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalCargo" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDelUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delEmpName" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocId" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocumentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatusExplanation" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true" type="tns:InvDocField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoFieldVOArray" nillable="true" type="tns:DocCargoField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoLifeCycleVOArray" nillable="true" type="tns:DocCargoLifeCycleVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoVOArray" nillable="true" type="tns:DocCargoVO"/>
+          <xs:element minOccurs="0" name="returnTotalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrlWithToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InvDocField2VO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldNameExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocCargoField2VO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldNameExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocCargoLifeCycleVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventName" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="reasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="reasonName" type="xs:string"/>
+          <xs:element minOccurs="0" name="townName" type="xs:string"/>
+          <xs:element minOccurs="0" name="unitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="unitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="desi" type="xs:string"/>
+          <xs:element minOccurs="0" name="kg" type="xs:string"/>
+          <xs:element minOccurs="0" name="desiKg" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DocCargoVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element name="cargoNumber" type="xs:long"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element name="desi" type="xs:double"/>
+          <xs:element name="kg" type="xs:double"/>
+          <xs:element minOccurs="0" name="barcodeStringValue" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByTrackingNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingParamsVO" type="tns:TrackingParamsVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TrackingParamsVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docIdArray" type="xs:long"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByTrackingNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TrackingDataResponseVO" type="tns:trackingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="trackingDataResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="trackingDetailVOArray" nillable="true" type="tns:TrackingDetailVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TrackingDetailVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionErrCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="waybillNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReceiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDelFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docType" type="xs:string"/>
+          <xs:element minOccurs="0" name="docTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="shipmentDistance" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryType" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="product" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesi" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesiKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalCargo" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDelUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delEmpName" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocId" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocumentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatusExplanation" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true" type="tns:InvDocField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoFieldVOArray" nillable="true" type="tns:DocCargoField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoLifeCycleVOArray" nillable="true" type="tns:DocCargoLifeCycleVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoVOArray" nillable="true" type="tns:DocCargoVO"/>
+          <xs:element minOccurs="0" name="returnTotalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrlWithToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByWaybillNo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="waybillNoArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByWaybillNoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentWithCustId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="unitParamsVO" type="tns:UnitParamsVO"/>
+          <xs:element minOccurs="0" name="subCustomerFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="wsUserGroupId" type="xs:string"/>
+          <xs:element name="pageSequenceNumber" type="xs:long"/>
+          <xs:element name="totalPages" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UnitParamsVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentWithCustIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingResponseVO" type="tns:shippingResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDetailResponseVOArray" nillable="true" type="tns:ShippingDetailResponseVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ShippingDetailResponseVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionChannel" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesi" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalCargoCount" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventTime" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByCustIdV2">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="unitParamsVO" type="tns:UnitParamsVO"/>
+          <xs:element minOccurs="0" name="subCustomerFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="wsUserGroupId" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+          <xs:element name="pageSequenceNumber" type="xs:long"/>
+          <xs:element name="totalPages" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByCustIdV2Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataV3ResponseVO" type="tns:shippingDataV3ResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDataV3ResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDataDetailVOArray" nillable="true" type="tns:ShippingDataV3DetailVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ShippingDataV3DetailVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionChannel" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="waybillNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReceiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDelFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docType" type="xs:string"/>
+          <xs:element minOccurs="0" name="docTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="shipmentDistance" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryType" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="product" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesi" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesiKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalCargo" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDelUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delEmpName" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocId" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocumentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatusExplanation" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true" type="tns:InvDocField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoFieldVOArray" nillable="true" type="tns:DocCargoField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoLifeCycleVOArray" nillable="true" type="tns:DocCargoLifeCycleVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoVOArray" nillable="true" type="tns:DocCargoVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByGrpSpecialField">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByGrpSpecialFieldResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listOutboundWithDocCargoReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listOutboundWithDocCargoReferenceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShippingWithPayer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerVO" type="tns:CustomerVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CustomerVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invCustIdArray" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShippingWithPayerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="XShippingV2ResponseVO" type="tns:xShippingV2ResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="xShippingV2ResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDetailVOArray" nillable="true" type="tns:XShippingV2DetailVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="XShippingV2DetailVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="recCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="depUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="depCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="docType" type="xs:string"/>
+          <xs:element minOccurs="0" name="paymentType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickUpType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickUpTypeCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryType" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTypeCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="prodName" type="xs:string"/>
+          <xs:element minOccurs="0" name="prodGrpName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element name="totalCargo" type="xs:int"/>
+          <xs:element name="totalDesiKg" type="xs:double"/>
+          <xs:element name="productPrice" type="xs:double"/>
+          <xs:element name="totalPrice" type="xs:double"/>
+          <xs:element name="totalVat" type="xs:double"/>
+          <xs:element name="totalPriceWithVat" type="xs:double"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveredTo" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupDocumentNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="waybillNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="extraInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="activeFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="userCreate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateCreate" type="xs:string"/>
+          <xs:element minOccurs="0" name="timeCreate" type="xs:string"/>
+          <xs:element minOccurs="0" name="userUpdate" type="xs:string"/>
+          <xs:element minOccurs="0" name="delUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="delUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="depCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="recAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrUnitTelArea" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrUnitTelNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrMainUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delMainUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="campaignName" type="xs:string"/>
+          <xs:element minOccurs="0" name="campaignId" type="xs:string"/>
+          <xs:element minOccurs="0" name="campaignKey" type="xs:string"/>
+          <xs:element minOccurs="0" name="insurance" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalTime" type="xs:string"/>
+          <xs:element name="dayDiff" type="xs:int"/>
+          <xs:element minOccurs="0" name="recCustTelArea1" type="xs:string"/>
+          <xs:element minOccurs="0" name="recCustTelNo1" type="xs:string"/>
+          <xs:element minOccurs="0" name="depMainUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="perfCFlag" type="xs:string"/>
+          <xs:element name="delivDurationWorkDay" type="xs:int"/>
+          <xs:element name="delivDuration" type="xs:int"/>
+          <xs:element minOccurs="0" name="perfLateCEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="perfLateCReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+          <xs:element minOccurs="0" name="docFieldAllValue" type="xs:string"/>
+          <xs:element name="shipmentDistance" type="xs:int"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="campaignAreaType" type="xs:string"/>
+          <xs:element minOccurs="0" name="reroutingFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitArrivalDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitArrivalTime" type="xs:string"/>
+          <xs:element name="waybillCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="docCarryBagNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderPhone1" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderGsm" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverPhone1" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverGsm" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrCountyId" type="xs:string"/>
+          <xs:element minOccurs="0" name="depCountyId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCountyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="nextDayDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="nextDayDeliveryEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="nextDayDeliveryReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="txEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCountyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionChannel" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustTelArea1" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustTelNo1" type="xs:string"/>
+          <xs:element minOccurs="0" name="delFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReason" type="xs:string"/>
+          <xs:element minOccurs="0" name="delMainUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrMainUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="depMainUnitName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true" type="tns:InvDocField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoFieldVOArray" nillable="true" type="tns:DocCargoField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoLifeCycleVOArray" nillable="true" type="tns:DocCargoLifeCycleVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoVOArray" nillable="true" type="tns:DocCargoVO"/>
+          <xs:element minOccurs="0" name="ktnFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktnArrivalFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktnYkPlusId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktnType" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktnId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ktnUnitPrcLocationId" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrlWithToken" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShippingWithDocId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerVO" type="tns:CustomerVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docIdArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShippingWithDocIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="XShippingV2ResponseVO" type="tns:xShippingV2ResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listIncomingWithDocCargoReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listIncomingWithDocCargoReferenceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByReferenceWithPayer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="customerVO" type="tns:CustomerVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentByReferenceWithPayerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentInterfaceWithFailedDeliveryV2">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentInterfaceWithFailedDeliveryV2Response">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingDataResponseVO" type="tns:shippingDataV2ResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingDataV2ResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:extendedBaseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDataV2DetailVOArray" nillable="true" type="tns:ShippingDataV2DetailVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="extendedBaseResultVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="errCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ShippingDataV2DetailVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionChannel" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="shipmentDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="currentUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectRequestDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressText" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocInterfaceWithTrnCenter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustParamsVO" type="tns:InvCustParamsVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docIdArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="withTrnCenterFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="InvCustParamsVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invCustIdArray" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocInterfaceWithTrnCenterResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingTrnResponseVO" type="tns:shippingTrnResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="shippingTrnResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:baseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="shippingDataTrnVOArray" nillable="true" type="tns:ShippingDataTrnVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ShippingDataTrnVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="transactionStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionErrCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="transactionMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invoiceNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="waybillNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docCargoId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressTxt" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverAddressId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCityName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverTownName" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReceiverMobilePhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentDelFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverInfo" type="xs:string"/>
+          <xs:element minOccurs="0" name="docType" type="xs:string"/>
+          <xs:element minOccurs="0" name="docTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="contractId" type="xs:string"/>
+          <xs:element minOccurs="0" name="trackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="shipmentDistance" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoType" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupType" type="xs:string"/>
+          <xs:element minOccurs="0" name="pickupTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryType" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTypeExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="product" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesi" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalDesiKg" type="xs:string"/>
+          <xs:element minOccurs="0" name="totalCargo" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonId" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentEventExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="documentReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDeliveryFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="delInfoDelUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="delEmpName" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectStatusExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectReasonExplanation" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocId" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDocumentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnDeliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnStatusExplanation" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="invDocFieldVOArray" nillable="true" type="tns:InvDocField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoFieldVOArray" nillable="true" type="tns:DocCargoField2VO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoLifeCycleVOArray" nillable="true" type="tns:DocCargoLifeCycleVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docCargoVOArray" nillable="true" type="tns:DocCargoVO"/>
+          <xs:element minOccurs="0" name="returnTotalPrice" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalVat" type="xs:string"/>
+          <xs:element minOccurs="0" name="returnTotalAmount" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoEventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrl" type="xs:string"/>
+          <xs:element minOccurs="0" name="ideliveryTrackingUrlWithToken" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitType" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureTrnCenterId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureTrnCenterName" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalTrnCenterId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalTrnCenterName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDeliveryCollectionInfoByReference">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateType" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="custDocNumber" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="custId" type="xs:long"/>
+          <xs:element minOccurs="0" name="subCustomer" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDeliveryCollectionInfoByReferenceResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeliveryCollectionDataResponseVO" type="tns:deliveryCollectionDataResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deliveryCollectionDataResponseVO">
+        <xs:complexContent>
+          <xs:extension base="tns:extendedBaseResultVO">
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="deliveryCollectionInfoVOArray" nillable="true" type="tns:qListDeliveryCollectionInfoVO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="qListDeliveryCollectionInfoVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arrivalUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="arrivalUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="cargoStatus" type="xs:string"/>
+          <xs:element name="collectionAmount" type="xs:double"/>
+          <xs:element minOccurs="0" name="custCollectionType" type="xs:string"/>
+          <xs:element minOccurs="0" name="custDocNumber" type="xs:string"/>
+          <xs:element name="custInvoiceAmount" type="xs:double"/>
+          <xs:element minOccurs="0" name="dcAppliedCredit" type="xs:string"/>
+          <xs:element minOccurs="0" name="dcBankRefNo" type="xs:string"/>
+          <xs:element minOccurs="0" name="dcSelectedCredit" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="deliveryUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitId" type="xs:string"/>
+          <xs:element minOccurs="0" name="departureUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="docFieldAllValue" type="xs:string"/>
+          <xs:element minOccurs="0" name="docId" type="xs:string"/>
+          <xs:element minOccurs="0" name="docNumber" type="xs:string"/>
+          <xs:element name="docPrice" type="xs:double"/>
+          <xs:element name="docVat" type="xs:double"/>
+          <xs:element minOccurs="0" name="documentDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dtCollectionDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dueDate" type="xs:string"/>
+          <xs:element name="dutyPrice" type="xs:double"/>
+          <xs:element name="dutyVat" type="xs:double"/>
+          <xs:element minOccurs="0" name="invoiceStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastEventDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="lastEventTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="odCollectionDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="receiverCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="rejectFlag" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustId" type="xs:string"/>
+          <xs:element minOccurs="0" name="senderCustName" type="xs:string"/>
+          <xs:element minOccurs="0" name="specialField" type="xs:string"/>
+          <xs:element minOccurs="0" name="ykInvoiceId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentWithDocDateInvCustId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="invCustParamsVO" type="tns:InvCustParamsVO"/>
+          <xs:element minOccurs="0" name="unitParamsVO" type="tns:UnitParamsVO"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="wsUserGroupId" type="xs:string"/>
+          <xs:element name="pageSequenceNumber" type="xs:long"/>
+          <xs:element name="totalPages" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listInvDocumentWithDocDateInvCustIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ShippingResponseVO" type="tns:shippingResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShipping">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userName" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element minOccurs="0" name="language" type="xs:string"/>
+          <xs:element minOccurs="0" name="custParamsVO" type="tns:CustParamsVO"/>
+          <xs:element minOccurs="0" name="fieldName" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fieldValueArray" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="docIdArray" type="xs:string"/>
+          <xs:element minOccurs="0" name="startDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="endDate" type="xs:string"/>
+          <xs:element minOccurs="0" name="dateParamType" type="xs:string"/>
+          <xs:element minOccurs="0" name="withCargoLifecycle" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNgiShippingResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="XShippingV2ResponseVO" type="tns:xShippingV2ResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </types>
+  <message name="WsReportWithReferenceServices_getDeliveryCollectionInfoByReferenceResponse">
+    <part element="tns:getDeliveryCollectionInfoByReferenceResponse" name="getDeliveryCollectionInfoByReferenceResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShippingResponse">
+    <part element="tns:listNgiShippingResponse" name="listNgiShippingResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenterResponse">
+    <part element="tns:listInvDocInterfaceWithTrnCenterResponse" name="listInvDocInterfaceWithTrnCenterResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByReferenceWithPayer">
+    <part element="tns:listInvDocumentByReferenceWithPayer" name="listInvDocumentByReferenceWithPayer"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listOutboundWithDocCargoReference">
+    <part element="tns:listOutboundWithDocCargoReference" name="listOutboundWithDocCargoReference"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByWaybillNoResponse">
+    <part element="tns:listInvDocumentByWaybillNoResponse" name="listInvDocumentByWaybillNoResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentWithCustId">
+    <part element="tns:listInvDocumentWithCustId" name="listInvDocumentWithCustId"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustId">
+    <part element="tns:listInvDocumentWithDocDateInvCustId" name="listInvDocumentWithDocDateInvCustId"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShipping">
+    <part element="tns:listNgiShipping" name="listNgiShipping"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByCustIdV2Response">
+    <part element="tns:listInvDocumentByCustIdV2Response" name="listInvDocumentByCustIdV2Response"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShippingWithDocIdResponse">
+    <part element="tns:listNgiShippingWithDocIdResponse" name="listNgiShippingWithDocIdResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByGrpSpecialField">
+    <part element="tns:listInvDocumentByGrpSpecialField" name="listInvDocumentByGrpSpecialField"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShippingWithPayerResponse">
+    <part element="tns:listNgiShippingWithPayerResponse" name="listNgiShippingWithPayerResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listIncomingWithDocCargoReferenceResponse">
+    <part element="tns:listIncomingWithDocCargoReferenceResponse" name="listIncomingWithDocCargoReferenceResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentInterfaceByReference">
+    <part element="tns:listInvDocumentInterfaceByReference" name="listInvDocumentInterfaceByReference"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByTrackingNumberResponse">
+    <part element="tns:listInvDocumentByTrackingNumberResponse" name="listInvDocumentByTrackingNumberResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listIncomingWithDocCargoReference">
+    <part element="tns:listIncomingWithDocCargoReference" name="listIncomingWithDocCargoReference"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentWithCustIdResponse">
+    <part element="tns:listInvDocumentWithCustIdResponse" name="listInvDocumentWithCustIdResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listOutboundWithDocCargoReferenceResponse">
+    <part element="tns:listOutboundWithDocCargoReferenceResponse" name="listOutboundWithDocCargoReferenceResponse"/>
+  </message>
+  <message name="YurticikargoWSException">
+    <part element="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByGrpSpecialFieldResponse">
+    <part element="tns:listInvDocumentByGrpSpecialFieldResponse" name="listInvDocumentByGrpSpecialFieldResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2">
+    <part element="tns:listInvDocumentInterfaceWithFailedDeliveryV2" name="listInvDocumentInterfaceWithFailedDeliveryV2"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShippingWithPayer">
+    <part element="tns:listNgiShippingWithPayer" name="listNgiShippingWithPayer"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByWaybillNo">
+    <part element="tns:listInvDocumentByWaybillNo" name="listInvDocumentByWaybillNo"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listNgiShippingWithDocId">
+    <part element="tns:listNgiShippingWithDocId" name="listNgiShippingWithDocId"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByTrackingNumber">
+    <part element="tns:listInvDocumentByTrackingNumber" name="listInvDocumentByTrackingNumber"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenter">
+    <part element="tns:listInvDocInterfaceWithTrnCenter" name="listInvDocInterfaceWithTrnCenter"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustIdResponse">
+    <part element="tns:listInvDocumentWithDocDateInvCustIdResponse" name="listInvDocumentWithDocDateInvCustIdResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_getDeliveryCollectionInfoByReference">
+    <part element="tns:getDeliveryCollectionInfoByReference" name="getDeliveryCollectionInfoByReference"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByCustIdV2">
+    <part element="tns:listInvDocumentByCustIdV2" name="listInvDocumentByCustIdV2"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentByReferenceWithPayerResponse">
+    <part element="tns:listInvDocumentByReferenceWithPayerResponse" name="listInvDocumentByReferenceWithPayerResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentInterfaceByReferenceResponse">
+    <part element="tns:listInvDocumentInterfaceByReferenceResponse" name="listInvDocumentInterfaceByReferenceResponse"/>
+  </message>
+  <message name="WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2Response">
+    <part element="tns:listInvDocumentInterfaceWithFailedDeliveryV2Response" name="listInvDocumentInterfaceWithFailedDeliveryV2Response"/>
+  </message>
+  <portType name="WsReportWithReferenceServices">
+    <operation name="getDeliveryCollectionInfoByReference" parameterOrder="getDeliveryCollectionInfoByReference">
+      <input message="tns:WsReportWithReferenceServices_getDeliveryCollectionInfoByReference"/>
+      <output message="tns:WsReportWithReferenceServices_getDeliveryCollectionInfoByReferenceResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listIncomingWithDocCargoReference" parameterOrder="listIncomingWithDocCargoReference">
+      <input message="tns:WsReportWithReferenceServices_listIncomingWithDocCargoReference"/>
+      <output message="tns:WsReportWithReferenceServices_listIncomingWithDocCargoReferenceResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocInterfaceWithTrnCenter" parameterOrder="listInvDocInterfaceWithTrnCenter">
+      <input message="tns:WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenter"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocInterfaceWithTrnCenterResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentByCustIdV2" parameterOrder="listInvDocumentByCustIdV2">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentByCustIdV2"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentByCustIdV2Response"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentByGrpSpecialField" parameterOrder="listInvDocumentByGrpSpecialField">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentByGrpSpecialField"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentByGrpSpecialFieldResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentByReferenceWithPayer" parameterOrder="listInvDocumentByReferenceWithPayer">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentByReferenceWithPayer"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentByReferenceWithPayerResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentByTrackingNumber" parameterOrder="listInvDocumentByTrackingNumber">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentByTrackingNumber"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentByTrackingNumberResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentByWaybillNo" parameterOrder="listInvDocumentByWaybillNo">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentByWaybillNo"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentByWaybillNoResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentInterfaceByReference" parameterOrder="listInvDocumentInterfaceByReference">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentInterfaceByReference"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentInterfaceByReferenceResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentInterfaceWithFailedDeliveryV2" parameterOrder="listInvDocumentInterfaceWithFailedDeliveryV2">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentInterfaceWithFailedDeliveryV2Response"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentWithCustId" parameterOrder="listInvDocumentWithCustId">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentWithCustId"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentWithCustIdResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listInvDocumentWithDocDateInvCustId" parameterOrder="listInvDocumentWithDocDateInvCustId">
+      <input message="tns:WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustId"/>
+      <output message="tns:WsReportWithReferenceServices_listInvDocumentWithDocDateInvCustIdResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listNgiShipping" parameterOrder="listNgiShipping">
+      <input message="tns:WsReportWithReferenceServices_listNgiShipping"/>
+      <output message="tns:WsReportWithReferenceServices_listNgiShippingResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listNgiShippingWithDocId" parameterOrder="listNgiShippingWithDocId">
+      <input message="tns:WsReportWithReferenceServices_listNgiShippingWithDocId"/>
+      <output message="tns:WsReportWithReferenceServices_listNgiShippingWithDocIdResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listNgiShippingWithPayer" parameterOrder="listNgiShippingWithPayer">
+      <input message="tns:WsReportWithReferenceServices_listNgiShippingWithPayer"/>
+      <output message="tns:WsReportWithReferenceServices_listNgiShippingWithPayerResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+    <operation name="listOutboundWithDocCargoReference" parameterOrder="listOutboundWithDocCargoReference">
+      <input message="tns:WsReportWithReferenceServices_listOutboundWithDocCargoReference"/>
+      <output message="tns:WsReportWithReferenceServices_listOutboundWithDocCargoReferenceResponse"/>
+      <fault message="tns:YurticikargoWSException" name="YurticikargoWSException"/>
+    </operation>
+  </portType>
+  <binding name="WsReportWithReferenceServicesBinding" type="tns:WsReportWithReferenceServices">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getDeliveryCollectionInfoByReference">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listIncomingWithDocCargoReference">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocInterfaceWithTrnCenter">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentByCustIdV2">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentByGrpSpecialField">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentByReferenceWithPayer">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentByTrackingNumber">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentByWaybillNo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentInterfaceByReference">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentInterfaceWithFailedDeliveryV2">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentWithCustId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listInvDocumentWithDocDateInvCustId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listNgiShipping">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listNgiShippingWithDocId">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listNgiShippingWithPayer">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listOutboundWithDocCargoReference">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="YurticikargoWSException">
+        <soap:fault name="YurticikargoWSException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="KOPSWebServices">
+    <port binding="tns:WsReportWithReferenceServicesBinding" name="WsReportWithReferenceServicesPort">
+      <soap:address location="https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint></con:endpoints><con:operation id="21e663f8-88b5-461d-be8e-c9c3e4997fe6" isOneWay="false" action="" name="getDeliveryCollectionInfoByReference" bindingOperationName="getDeliveryCollectionInfoByReference" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="88d848c7-77ca-4ea3-9043-665684fa7cbd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:getDeliveryCollectionInfoByReference>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateType>?</dateType>\r
+         <!--Zero or more repetitions:-->\r
+         <custDocNumber>?</custDocNumber>\r
+         <!--Zero or more repetitions:-->\r
+         <custId>?</custId>\r
+         <!--Optional:-->\r
+         <subCustomer>?</subCustomer>\r
+      </ssw:getDeliveryCollectionInfoByReference>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/getDeliveryCollectionInfoByReferenceRequest"/></con:call></con:operation><con:operation id="45ee01f1-084e-4fce-8fad-e98c97a4846d" isOneWay="false" action="" name="listIncomingWithDocCargoReference" bindingOperationName="listIncomingWithDocCargoReference" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="80c6cb88-47f6-4f25-9b0d-4cfc2464da71" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listIncomingWithDocCargoReference>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <docCargoId>?</docCargoId>\r
+         <!--Optional:-->\r
+         <deliveryUnitId>?</deliveryUnitId>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listIncomingWithDocCargoReference>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listIncomingWithDocCargoReferenceRequest"/></con:call></con:operation><con:operation id="2cb728c5-a835-44dd-b77e-f897e62f0f39" isOneWay="false" action="" name="listInvDocInterfaceWithTrnCenter" bindingOperationName="listInvDocInterfaceWithTrnCenter" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dbf9c9ed-e5d8-447d-a2cc-15f65290f664" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocInterfaceWithTrnCenter>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <invCustParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+         </invCustParamsVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Zero or more repetitions:-->\r
+         <docIdArray>?</docIdArray>\r
+         <!--Optional:-->\r
+         <withTrnCenterFlag>?</withTrnCenterFlag>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listInvDocInterfaceWithTrnCenter>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocInterfaceWithTrnCenterRequest"/></con:call></con:operation><con:operation id="55a9d092-6afa-401e-b746-704bc824081b" isOneWay="false" action="" name="listInvDocumentByCustIdV2" bindingOperationName="listInvDocumentByCustIdV2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="de68b803-ac0d-4906-a970-21df938288bb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentByCustIdV2>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <unitParamsVO>\r
+            <!--Optional:-->\r
+            <departureUnitId>?</departureUnitId>\r
+            <!--Optional:-->\r
+            <deliveryUnitId>?</deliveryUnitId>\r
+         </unitParamsVO>\r
+         <!--Optional:-->\r
+         <subCustomerFlag>?</subCustomerFlag>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <wsUserGroupId>?</wsUserGroupId>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+         <pageSequenceNumber>?</pageSequenceNumber>\r
+         <totalPages>?</totalPages>\r
+      </ssw:listInvDocumentByCustIdV2>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentByCustIdV2Request"/></con:call></con:operation><con:operation id="62c135b7-1df3-454e-9f0c-3e81e855cfa5" isOneWay="false" action="" name="listInvDocumentByGrpSpecialField" bindingOperationName="listInvDocumentByGrpSpecialField" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b278e217-0ad5-4c98-8898-61827cd468f0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentByGrpSpecialField>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listInvDocumentByGrpSpecialField>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentByGrpSpecialFieldRequest"/></con:call></con:operation><con:operation id="6cead5f4-0e1c-4340-a649-24d37c919843" isOneWay="false" action="" name="listInvDocumentByReferenceWithPayer" bindingOperationName="listInvDocumentByReferenceWithPayer" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e3fae31d-e722-4226-b74c-4ba45251d6be" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentByReferenceWithPayer>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <customerVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+         </customerVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listInvDocumentByReferenceWithPayer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentByReferenceWithPayerRequest"/></con:call></con:operation><con:operation id="d404e3b5-881a-4bb7-81a7-9d403cf85786" isOneWay="false" action="" name="listInvDocumentByTrackingNumber" bindingOperationName="listInvDocumentByTrackingNumber" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="09f3da0f-d767-4d7c-98ef-ac8678dcb3ff" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentByTrackingNumber>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <trackingParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <docIdArray>?</docIdArray>\r
+            <!--Optional:-->\r
+            <withCargoLifecycle>?</withCargoLifecycle>\r
+         </trackingParamsVO>\r
+      </ssw:listInvDocumentByTrackingNumber>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentByTrackingNumberRequest"/></con:call></con:operation><con:operation id="c7b6ea71-0179-42ad-a33a-d7426751cde1" isOneWay="false" action="" name="listInvDocumentByWaybillNo" bindingOperationName="listInvDocumentByWaybillNo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3dbeac4-6919-45c1-b369-d75e41066cf1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentByWaybillNo>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Zero or more repetitions:-->\r
+         <waybillNoArray>?</waybillNoArray>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listInvDocumentByWaybillNo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentByWaybillNoRequest"/></con:call></con:operation><con:operation id="6b14642c-587d-4b99-9953-a440c0758183" isOneWay="false" action="" name="listInvDocumentInterfaceByReference" bindingOperationName="listInvDocumentInterfaceByReference" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8e2f4321-7e8d-4dd6-b02a-a9305c312da8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentInterfaceByReference>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Zero or more repetitions:-->\r
+         <docIdArray>?</docIdArray>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listInvDocumentInterfaceByReference>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentInterfaceByReferenceRequest"/></con:call></con:operation><con:operation id="cdf90dc1-94d1-4cfd-baf9-55f77bd34e62" isOneWay="false" action="" name="listInvDocumentInterfaceWithFailedDeliveryV2" bindingOperationName="listInvDocumentInterfaceWithFailedDeliveryV2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2623554c-ca42-4c15-aacd-dc3236e45901" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentInterfaceWithFailedDeliveryV2>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Optional:-->\r
+         <departureUnitId>?</departureUnitId>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+      </ssw:listInvDocumentInterfaceWithFailedDeliveryV2>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentInterfaceWithFailedDeliveryV2Request"/></con:call></con:operation><con:operation id="9d3592a6-b46f-49b6-8ba1-5b98eb3dcc55" isOneWay="false" action="" name="listInvDocumentWithCustId" bindingOperationName="listInvDocumentWithCustId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="53ec896b-dbec-4391-967d-0b36826d1694" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentWithCustId>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <unitParamsVO>\r
+            <!--Optional:-->\r
+            <departureUnitId>?</departureUnitId>\r
+            <!--Optional:-->\r
+            <deliveryUnitId>?</deliveryUnitId>\r
+         </unitParamsVO>\r
+         <!--Optional:-->\r
+         <subCustomerFlag>?</subCustomerFlag>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <wsUserGroupId>?</wsUserGroupId>\r
+         <pageSequenceNumber>?</pageSequenceNumber>\r
+         <totalPages>?</totalPages>\r
+      </ssw:listInvDocumentWithCustId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentWithCustIdRequest"/></con:call></con:operation><con:operation id="477ca001-d5f7-40cd-8ec7-b986c0ebc19a" isOneWay="false" action="" name="listInvDocumentWithDocDateInvCustId" bindingOperationName="listInvDocumentWithDocDateInvCustId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7ce2d80e-a875-497b-b70f-a96468768fac" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listInvDocumentWithDocDateInvCustId>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <invCustParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+         </invCustParamsVO>\r
+         <!--Optional:-->\r
+         <unitParamsVO>\r
+            <!--Optional:-->\r
+            <departureUnitId>?</departureUnitId>\r
+            <!--Optional:-->\r
+            <deliveryUnitId>?</deliveryUnitId>\r
+         </unitParamsVO>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <wsUserGroupId>?</wsUserGroupId>\r
+         <pageSequenceNumber>?</pageSequenceNumber>\r
+         <totalPages>?</totalPages>\r
+      </ssw:listInvDocumentWithDocDateInvCustId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listInvDocumentWithDocDateInvCustIdRequest"/></con:call></con:operation><con:operation id="7b1cf9e4-be2b-4385-845f-2221d64fd8e9" isOneWay="false" action="" name="listNgiShipping" bindingOperationName="listNgiShipping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ae5bef81-36fe-4559-9e0b-35f145313ab2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listNgiShipping>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Zero or more repetitions:-->\r
+         <docIdArray>?</docIdArray>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listNgiShipping>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listNgiShippingRequest"/></con:call></con:operation><con:operation id="2a77ad48-46b5-4de3-b697-e5171d63fad7" isOneWay="false" action="" name="listNgiShippingWithDocId" bindingOperationName="listNgiShippingWithDocId" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fab17f22-c46c-45e8-874c-aeadc4eb33aa" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listNgiShippingWithDocId>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <customerVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+         </customerVO>\r
+         <!--Zero or more repetitions:-->\r
+         <docIdArray>?</docIdArray>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listNgiShippingWithDocId>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listNgiShippingWithDocIdRequest"/></con:call></con:operation><con:operation id="85bb5807-e18b-4cc1-b60d-37eb3a04530e" isOneWay="false" action="" name="listNgiShippingWithPayer" bindingOperationName="listNgiShippingWithPayer" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="53f19ce6-bc4b-46ea-8e3d-1d2746609cc7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listNgiShippingWithPayer>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <customerVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+         </customerVO>\r
+         <!--Optional:-->\r
+         <fieldName>?</fieldName>\r
+         <!--Zero or more repetitions:-->\r
+         <fieldValueArray>?</fieldValueArray>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listNgiShippingWithPayer>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listNgiShippingWithPayerRequest"/></con:call></con:operation><con:operation id="c9823d65-fbeb-4574-aa13-f3096d611aba" isOneWay="false" action="" name="listOutboundWithDocCargoReference" bindingOperationName="listOutboundWithDocCargoReference" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41b62f27-643d-4248-8280-cca66d293910" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ws.yurticikargo.com/KOPSWebServices/WsReportWithReferenceServices</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ssw="http://yurticikargo.com.tr/sswIntegrationServices">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ssw:listOutboundWithDocCargoReference>\r
+         <!--Optional:-->\r
+         <userName>?</userName>\r
+         <!--Optional:-->\r
+         <password>?</password>\r
+         <!--Optional:-->\r
+         <language>?</language>\r
+         <!--Optional:-->\r
+         <custParamsVO>\r
+            <!--Zero or more repetitions:-->\r
+            <invCustIdArray>?</invCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <senderCustIdArray>?</senderCustIdArray>\r
+            <!--Zero or more repetitions:-->\r
+            <receiverCustIdArray>?</receiverCustIdArray>\r
+         </custParamsVO>\r
+         <!--Optional:-->\r
+         <docCargoId>?</docCargoId>\r
+         <!--Optional:-->\r
+         <departureUnitId>?</departureUnitId>\r
+         <!--Optional:-->\r
+         <startDate>?</startDate>\r
+         <!--Optional:-->\r
+         <endDate>?</endDate>\r
+         <!--Optional:-->\r
+         <dateParamType>?</dateParamType>\r
+         <!--Optional:-->\r
+         <withCargoLifecycle>?</withCargoLifecycle>\r
+      </ssw:listOutboundWithDocCargoReference>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://yurticikargo.com.tr/sswIntegrationServices/WsReportWithReferenceServices/listOutboundWithDocCargoReferenceRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

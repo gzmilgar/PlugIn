@@ -1,0 +1,2220 @@
+
+**** Log file opened at 2021-09-28 16:13:35.199641 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-28 16:13:35.199946 [13892] >> Info entry
+	Did not find config file C:\Users\10119350\Documents\SAP\SAP GUI\sapnwrfc.ini.
+
+**** Log file opened at 2021-09-29 11:17:20.561970 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 11:17:20.573198 [10012] >> Error entry
+	[Handle: 51593920	ConvID: 09367156	Target: VSYERPVEDA1.vsy.local	SysID: VED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Sep 29 11:17:20 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:52785
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-09-29 11:28:14.945863 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 11:28:14.946089 [13876] >> Error entry
+	[Handle: 54742584	ConvID: 10726715	Target: VSYERPVEDA1.vsy.local	SysID: VED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Sep 29 11:28:14 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:49674
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-09-29 12:05:26.772449 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 12:05:26.772619 [03480] >> Error entry
+	[Handle: 53231816	ConvID: 13282419	Target: VSYERPVEDA1.vsy.local	SysID: VED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Sep 29 12:05:26 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:62746
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-09-29 13:09:32.994389 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 13:09:32.994595 [16132] >> Error entry
+	[Handle: 54804560	ConvID: 16408768	Target: VSYERPVEDA1.vsy.local	SysID: VED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Sep 29 13:09:32 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:50520
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-09-29 13:20:00.004334 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 13:20:00.004469 [06644] >> Error entry
+	[Handle: 53952696	ConvID: 17356458	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'saprouter.itelligence.com.tr:3299' not reached
+TIME        Wed Sep 29 13:20:00 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 85.111.59.201:3299
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2021-09-29 13:24:17.208888 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-09-29 13:24:17.209131 [14504] >> Error entry
+	[Handle: 5717960	ConvID: 17406946	Target: VSYERPVEDA1.vsy.local	SysID: VED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Sep 29 13:24:17 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:51367
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-04 12:54:38.736671 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-04 12:54:38.737084 [21960] >> Error entry
+	[Handle: 54259776	ConvID: 48233537	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Mon Oct  4 12:54:38 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:54889
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-06 15:59:28.174097 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.56, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-06 15:59:28.174356 [06804] >> Error entry
+	[Handle: 55323992	ConvID: 32021097	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Oct  6 15:59:28 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.56:55042
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-11 17:22:03.374707 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.16.1.30, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-11 17:22:03.374838 [11164] >> Error entry
+	[Handle: 140003336	ConvID: 42350819	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Mon Oct 11 17:22:03 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=172.16.1.30:52611
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+    4
+
+
+**** Log file opened at 2021-10-12 11:17:15.339986 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-12 11:17:15.340310 [16344] >> Error entry
+	[Handle: 50146080	ConvID: 33761884	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Oct 12 11:17:15 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:53961
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-12 11:22:45.236295 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-12 11:22:45.236597 [21980] >> Error entry
+	[Handle: 51594512	ConvID: 34207924	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Oct 12 11:22:45 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:53988
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-14 15:53:52.292699 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-14 15:53:52.292905 [12968] >> Error entry
+	[Handle: 142417368	ConvID: 22687995	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Oct 14 15:53:52 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:57689
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2021-10-15 09:13:25.563807 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 09:13:25.564169 [24880] >> Error entry
+	[Handle: 45629640	ConvID: 85092576	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 09:13:25 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:53832
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-15 09:49:49.284609 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 09:49:49.284995 [14396] >> Error entry
+	[Handle: 149934096	ConvID: 87588104	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 09:49:49 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:59495
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2021-10-15 10:22:49.583169 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 10:22:49.583581 [14052] >> Error entry
+	[Handle: 49822784	ConvID: 89014064	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 10:22:49 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:59681
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-15 10:41:00.272773 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 10:41:00.272872 [21188] >> Error entry
+	[Handle: 51979200	ConvID: 89859631	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 10:41:00 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:65165
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-15 11:31:25.752509 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 11:31:25.752797 [08832] >> Error entry
+	[Handle: 54938880	ConvID: 93737229	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 11:31:25 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:60263
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-15 13:29:33.064428 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-15 13:29:33.064628 [12724] >> Error entry
+	[Handle: 55590368	ConvID: 00398121	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Oct 15 13:29:33 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:64094
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-19 00:43:20.741380 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.67, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-19 00:43:20.741580 [09400] >> Error entry
+	[Handle: 11491528	ConvID: 00460661	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Oct 19 00:43:20 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=192.168.1.67:58731
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-23 14:03:40.963223 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.20.10.10, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-23 14:03:40.963429 [06244] >> Error entry
+	[Handle: 55922680	ConvID: 82200527	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Sat Oct 23 14:03:40 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=172.20.10.10:65391
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-23 14:03:40.968552 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.20.10.10, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-23 14:03:40.968639 [03248] >> Error entry
+	[Handle: 9716088	ConvID: 91317513	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Sat Oct 23 14:03:40 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=172.20.10.10:52697
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-10-23 14:03:40.968904 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.20.10.10, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-10-23 14:03:40.968998 [20240] >> Error entry
+	[Handle: 51860368	ConvID: 80074295	Target: MTERPMEDA1	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Sat Oct 23 14:03:40 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=172.20.10.10:63140
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-14 16:16:39.468989 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.7, IPv6 address: fe80::5135:c746:e5d:e20a
+
+2021-12-14 16:16:39.469132 [08276] >> Error entry
+	[Handle: 53505752	ConvID: 91040693	Target: MACTSRVP-001.mitsubishielectric.local	SysID: EP1	SysNr: 00	User: ITEL_ILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '10.236.218.10:sapgw00' broken
+TIME        Tue Dec 14 16:16:39 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.236.218.10:3300; L=0.0.0.0:53767
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-14 16:16:39.469645 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.7, IPv6 address: fe80::5135:c746:e5d:e20a
+
+2021-12-14 16:16:39.469836 [13368] >> Error entry
+	[Handle: 48317792	ConvID: 96272446	Target: MACTSRVQ-001.mitsubishielectric.local	SysID: EQ1	SysNr: 00	User: AYBUKE	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '10.236.218.22:sapgw00' broken
+TIME        Tue Dec 14 16:16:39 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.236.218.22:3300; L=0.0.0.0:53583
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-16 11:51:35.977887 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.7, IPv6 address: fe80::5135:c746:e5d:e20a
+
+2021-12-16 11:51:35.978031 [03172] >> Error entry
+	[Handle: 87525296	ConvID: 47176862	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Dec 16 11:51:35 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.70.0.133:3299; L=0.0.0.0:50429
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2021-12-16 18:55:44.970904 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.7, IPv6 address: fe80::5135:c746:e5d:e20a
+
+2021-12-16 18:55:44.971033 [24980] >> Error entry
+	[Handle: 51200912	ConvID: 73436497	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Dec 16 18:55:44 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.70.0.133:3299; L=0.0.0.0:61490
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-21 09:43:49.223815 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-21 09:43:49.224033 [56652] >> Error entry
+	[Handle: 57066248	ConvID: 74885767	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Dec 21 09:43:49 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:58831
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-21 10:10:59.170618 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-21 10:10:59.170844 [33896] >> Error entry
+	[Handle: 5452528	ConvID: 76725140	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Dec 21 10:10:59 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:59075
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-21 10:43:59.177759 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-21 10:43:59.177949 [21296] >> Error entry
+	[Handle: 13262704	ConvID: 78855014	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Dec 21 10:43:59 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:59668
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2021-12-22 19:30:20.402367 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-22 19:30:20.403108 [54620] >> Error entry
+	[Handle: 57901880	ConvID: 96256216	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Dec 22 19:30:20 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:52378
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-23 11:51:28.595544 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-23 11:51:28.595679 [15220] >> Error entry
+	[Handle: 11297224	ConvID: 55313913	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Dec 23 11:51:28 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:58800
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-23 11:52:08.541429 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-23 11:52:08.541510 [26408] >> Error entry
+	[Handle: 56525832	ConvID: 55417196	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Dec 23 11:52:08 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:58820
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-23 12:25:38.550442 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-23 12:25:38.550731 [40412] >> Error entry
+	[Handle: 146071552	ConvID: 57376315	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Dec 23 12:25:38 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:59191
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2021-12-24 09:44:19.400242 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-24 09:44:19.400383 [15952] >> Error entry
+	[Handle: 57551560	ConvID: 34724441	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Dec 24 09:44:19 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:54092
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-24 09:48:49.306738 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-24 09:48:49.306983 [31208] >> Error entry
+	[Handle: 7951232	ConvID: 34700341	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Dec 24 09:48:49 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:54090
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-24 11:59:29.463460 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-24 11:59:29.463807 [30800] >> Error entry
+	[Handle: 54351992	ConvID: 42586249	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Dec 24 11:59:29 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:55172
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-28 12:31:42.819860 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.13, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-28 12:31:42.820348 [49236] >> Error entry
+	[Handle: 52186808	ConvID: 82773414	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Tue Dec 28 12:31:42 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:56111
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2021-12-29 14:42:58.211551 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.20.10.10, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2021-12-29 14:42:58.211675 [19448] >> Error entry
+	[Handle: 53607872	ConvID: 82831501	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Wed Dec 29 14:42:58 2021
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:63474
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-01-07 16:50:00.603707 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-01-07 16:50:00.603923 [24500] >> Error entry
+	[Handle: 55868304	ConvID: 69840746	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Jan  7 16:50:00 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        4867
+DETAIL      NiIWrite: P=85.111.59.201:3299; L=0.0.0.0:58866
+SYSTEM CALL WSASend
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-01-07 22:48:27.928602 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.53.198, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-01-07 22:48:27.928840 [25104] >> Error entry
+	[Handle: 13976576	ConvID: 91301518	Target: MTERPMEDA1.menderes.local	SysID: MED	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Fri Jan  7 22:48:27 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:51834
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2022-02-21 19:29:15.991996 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.27.215.248, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-02-21 19:29:15.993948 [32032] >> Error entry
+	[Handle: 52273392	ConvID: 58760234	Target: BTGBZ-SDEVERP	SysID: B4D	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '172.19.201.102:sapgw00' broken
+TIME        Mon Feb 21 19:29:15 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5172
+DETAIL      NiIRead: P=172.19.201.102:3300; L=127.0.0.1:52858
+SYSTEM CALL recv
+COUNTER     4
+
+
+**** Log file opened at 2022-03-15 10:05:56.018606 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.31, IPv6 address: fe80::5135:c746:e5d:e20a
+
+2022-03-15 10:05:56.018963 [05176] >> Error entry
+	[Handle: 49108392	ConvID: 35997959	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Tue Mar 15 10:05:56 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-03-18 14:57:45.538181 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.27.210.100, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-18 14:57:45.538771 [12708] >> Error entry
+	[Handle: 46685280	ConvID: 18714704	Target: BTGBZ-SPRERP5	SysID: B4S	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by whitelist
+
+**** Log file opened at 2022-03-18 14:58:08.166053 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.27.210.100, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-18 14:58:08.166297 [14868] >> Error entry
+	[Handle: 48780816	ConvID: 18739378	Target: BTGBZ-SPRERP5	SysID: B4S	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by whitelist
+
+**** Log file opened at 2022-03-23 15:17:25.711044 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.36, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-23 15:17:25.711875 [05312] >> Error entry
+	[Handle: 46619888	ConvID: 45736528	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Wed Mar 23 15:17:25 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-03-23 15:55:09.307635 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.36, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-23 15:55:09.308453 [05504] >> Error entry
+	[Handle: 53911040	ConvID: 48212635	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Wed Mar 23 15:55:09 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-03-24 09:18:01.374811 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.36, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-24 09:18:01.375048 [19504] >> Error entry
+	[Handle: 52841864	ConvID: 10186131	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Thu Mar 24 09:18:01 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-03-24 09:23:05.013333 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.36, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-24 09:23:05.013612 [03244] >> Error entry
+	[Handle: 44981832	ConvID: 10540044	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Thu Mar 24 09:23:05 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-03-24 09:26:36.935623 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.36, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-03-24 09:26:36.936009 [14496] >> Error entry
+	[Handle: 49700608	ConvID: 10767893	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Thu Mar 24 09:26:36 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-04-06 10:41:51.690310 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.0.86, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-04-06 10:41:51.690931 [14804] >> Error entry
+	[Handle: 56786304	ConvID: 38556204	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Wed Apr  6 10:41:51 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-04-06 14:25:19.812273 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.0.86, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-04-06 14:25:19.812546 [23376] >> Error entry
+	[Handle: 44866952	ConvID: 51858710	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       partner 'TTSERPTEDA1.ttesa.net:sapgw00' not reached
+TIME        Wed Apr  6 14:25:19 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -10
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        3449
+DETAIL      NiPConnect2: 10.180.9.21:3300
+SYSTEM CALL connect
+ERRNO       10060
+ERRNO TEXT  WSAETIMEDOUT: Connection timed out
+COUNTER     2
+
+
+**** Log file opened at 2022-04-14 11:40:55.211575 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.45, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-04-14 11:40:55.211841 [08556] >> Error entry
+	[Handle: 54756104	ConvID: 37327891	Target: AKSERPQASA1	SysID: AEQ	SysNr: 00	User: D_EAYDOGAN	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'saprouter.itelligence.com.tr:3299'
+            broken
+TIME        Thu Apr 14 11:40:55 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=85.111.59.201:3299; L=0.0.0.0:57163
+SYSTEM CALL recv
+ERRNO       10053
+ERRNO TEXT  WSAECONNABORTED: Software caused connection abort
+COUNTER     6
+
+
+**** Log file opened at 2022-06-07 12:57:05.566200 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.27.215.179, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-06-07 12:57:05.566899 [02736] >> Error entry
+	[Handle: 59537648	ConvID: 91466189	Target: BTGBZ-SDEVERP	SysID: B4D	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '172.19.201.102:sapgw00' broken
+TIME        Tue Jun  7 12:57:05 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5172
+DETAIL      NiIRead: P=172.19.201.102:3300; L=127.0.0.1:59537
+SYSTEM CALL recv
+COUNTER     4
+
+
+**** Log file opened at 2022-08-04 13:12:20.410587 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.100, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-04 13:12:20.410989 [14040] >> Error entry
+	[Handle: 53904304	ConvID: 07744784	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug  4 13:12:20 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:52671
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-08-04 13:12:20.495924 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.100, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-04 13:12:20.496117 [24912] >> Error entry
+	[Handle: 50039352	ConvID: 07849054	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug  4 13:12:20 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:52682
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-08-12 14:52:18.742921 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.0.142, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-12 14:52:18.743703 [01984] >> Error entry
+	[Handle: 53185368	ConvID: 05283612	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: RFC_INVALID_HANDLE, Code: RFC_ABAP_RUNTIME_FAILURE, Message: An invalid handle 'RFC_FUNCTION_HANDLE' was passed to the API call
+
+**** Log file opened at 2022-08-14 14:57:52.197723 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.0.142, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-14 14:57:52.199937 [17192] >> Error entry
+	[Handle: 10855328	ConvID: 06255540	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner '10.1.8.43:3300' broken
+TIME        Sun Aug 14 14:57:52 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:64224
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2022-08-18 12:19:58.314619 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.104, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-18 12:19:58.314885 [17952] >> Error entry
+	[Handle: 49857024	ConvID: 02022594	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug 18 12:19:58 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:52029
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-08-18 17:46:02.827427 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.104, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-18 17:46:02.827878 [07416] >> Error entry
+	[Handle: 7775120	ConvID: 22728682	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug 18 17:46:02 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:54041
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-08-25 12:21:25.814580 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.5, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-25 12:21:25.815176 [09508] >> Error entry
+	[Handle: 11111248	ConvID: 16995619	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug 25 12:21:25 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:54161
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-08-25 12:21:25.815362 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.5, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-08-25 12:21:25.815470 [10100] >> Error entry
+	[Handle: 52789968	ConvID: 20428689	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Aug 25 12:21:25 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:54852
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-09-05 13:44:52.191740 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.0.199, IPv6 address: fe80::6d5b:1e49:8117:7811
+
+2022-09-05 13:44:52.191977 [11536] >> Error entry
+	[Handle: 10980184	ConvID: 74232237	Target: vhklsds4ci.sap.klimasan.com.tr	SysID: DS4	SysNr: 00	User: GIZEMI_NTT	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '172.20.22.246:sapgw00' broken
+TIME        Mon Sep  5 13:44:52 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=172.20.22.246:3300; L=0.0.0.0:62241
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-09-06 09:42:05.847292 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.2, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-09-06 09:42:05.847505 [04608] >> Error entry
+	[Handle: 56001088	ConvID: 46133286	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Tue Sep  6 09:42:05 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:65308
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2022-09-06 14:07:40.602071 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.2, IPv6 address: fe80::6d5b:1e49:8117:7811
+
+2022-09-06 14:07:40.602432 [01332] >> Error entry
+	[Handle: 51872080	ConvID: 54087487	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Tue Sep  6 14:07:40 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:58922
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-09-09 17:47:39.570810 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.2, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-09-09 17:47:39.571015 [18876] >> Error entry
+	[Handle: 49578480	ConvID: 27426100	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Fri Sep  9 17:47:39 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:59923
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-09-19 18:24:28.801080 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.10, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2022-09-19 18:24:28.801967 [17304] >> Error entry
+	[Handle: 49781368	ConvID: 09275067	Target: 	SysID: 	SysNr: 	User: 	Codepage: 1100]
+	RfcCommunicationException: Return Value: 20, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    SAProuter 40.4 on 'saprouterlnx'
+ERROR       saprouterlnx: route permission denied (176.234.225.91 to
+            10.70.0.132, sapgw00)
+TIME        Mon Sep 19 11:24:09 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -94
+COUNTER     68921
+
+
+**** Log file opened at 2022-09-21 13:52:56.020422 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.49, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-09-21 13:52:56.020661 [17432] >> Error entry
+	[Handle: 55687776	ConvID: 58037213	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Wed Sep 21 13:52:56 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:59387
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-09-26 17:06:29.428954 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 172.20.10.10, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-09-26 17:06:29.429357 [01696] >> Error entry
+	[Handle: 54887088	ConvID: 45283310	Target: TTSERPTEDA1.ttesa.net	SysID: TED	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'TTSERPTEDA1.ttesa.net:sapgw00' broken
+TIME        Mon Sep 26 17:06:29 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        4867
+DETAIL      NiIWrite: P=10.180.9.21:3300; L=0.0.0.0:65424
+SYSTEM CALL WSASend
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-12-06 17:01:27.521858 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.31, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-12-06 17:01:27.522043 [16200] >> Error entry
+	[Handle: 46564688	ConvID: 40357241	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Tue Dec  6 17:01:27 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        4867
+DETAIL      NiIWrite: P=10.1.8.43:3300; L=0.0.0.0:54455
+SYSTEM CALL WSASend
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-12-08 20:55:41.732496 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.116.239, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-12-08 20:55:41.732738 [17388] >> Error entry
+	[Handle: 14720360	ConvID: 28040677	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Dec  8 20:55:41 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:62073
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2022-12-13 15:30:54.652002 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.5, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-12-13 15:30:54.652766 [28024] >> Error entry
+	[Handle: 8885048	ConvID: 61932522	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by whitelist
+
+**** Log file opened at 2022-12-28 18:20:21.012733 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.14, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2022-12-28 18:20:21.012933 [21568] >> Error entry
+	[Handle: 53775096	ConvID: 50243192	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Wed Dec 28 18:20:21 2022
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:63986
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-01-12 13:37:07.378067 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.68.161, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2023-01-12 13:37:07.378279 [22540] >> Error entry
+	[Handle: 9357392	ConvID: 27219203	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Thu Jan 12 13:37:07 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:52684
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2023-01-30 18:08:22.950809 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.4, IPv6 address: fe80::d18c:bc88:3b3c:660e
+
+2023-01-30 18:08:22.951177 [24236] >> Error entry
+	[Handle: 46511968	ConvID: 00814958	Target: vhltgs4dap01.hec.lcwaikiki.com	SysID: S4D	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner 'vhltgs4dap01.hec.lcwaikiki.com:sapgw00'
+            broken
+TIME        Mon Jan 30 18:08:22 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.1.8.43:3300; L=0.0.0.0:59734
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     6
+
+
+**** Log file opened at 2023-03-02 13:32:32.967171 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.12, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2023-03-02 13:32:32.967669 [30060] >> Error entry
+	[Handle: 12096672	ConvID: 97188111	Target: TTSERPTEDA1.ttesa.net	SysID: TED	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'TTSERPTEDA1.ttesa.net:sapgw00' broken
+TIME        Thu Mar  2 13:32:32 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        4867
+DETAIL      NiIWrite: P=10.180.9.21:3300; L=0.0.0.0:53861
+SYSTEM CALL WSASend
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-03-02 13:32:44.059019 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.12, IPv6 address: fe80::e551:d345:eaf7:612b
+
+2023-03-02 13:32:44.059158 [01708] >> Error entry
+	[Handle: 9538024	ConvID: 98629219	Target: TTSERPTEDA1.ttesa.net	SysID: TED	SysNr: 00	User: X_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner 'TTSERPTEDA1.ttesa.net:sapgw00' broken
+TIME        Thu Mar  2 13:32:44 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.180.9.21:3300; L=0.0.0.0:64207
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-04-25 16:26:30.048546 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.9, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-04-25 16:26:30.049088 [15400] >> Error entry
+	[Handle: 44601120	ConvID: 37937138	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '10.0.6.132:sapgw00' broken
+TIME        Tue Apr 25 16:26:30 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.0.6.132:3300; L=0.0.0.0:58254
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-05-08 10:25:36.325968 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-08 10:25:36.326420 [04048] >> Error entry
+	[Handle: 49165488	ConvID: 44066125	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
+
+**** Log file opened at 2023-05-08 10:25:55.549334 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-08 10:25:55.549631 [22172] >> Error entry
+	[Handle: 54651200	ConvID: 44087626	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
+
+**** Log file opened at 2023-05-08 10:29:28.324329 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-08 10:29:28.324626 [10956] >> Error entry
+	[Handle: 53650824	ConvID: 44339432	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
+
+**** Log file opened at 2023-05-08 10:39:15.429072 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-08 10:39:15.429467 [20488] >> Error entry
+	[Handle: 45526264	ConvID: 44033587	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
+
+**** Log file opened at 2023-05-08 11:39:06.419117 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-08 11:39:06.419319 [22900] >> Error entry
+	[Handle: 49461880	ConvID: 45023071	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner '10.0.6.132:sapgw00' broken
+TIME        Mon May  8 11:39:06 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.0.6.132:3300; L=0.0.0.0:51887
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2023-05-10 09:54:52.302892 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-10 09:54:52.303048 [01892] >> Error entry
+	[Handle: 46306944	ConvID: 13678395	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner '10.0.6.132:sapgw00' broken
+TIME        Wed May 10 09:54:52 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.0.6.132:3300; L=0.0.0.0:58322
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     6
+
+
+**** Log file opened at 2023-05-12 15:52:18.128770 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.24, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-12 15:52:18.128982 [13556] >> Error entry
+	[Handle: 53916168	ConvID: 06592390	Target: vhmamrd7ap01.sap.Erkunt.com.tr	SysID: RD7	SysNr: 00	User: D_GILGAR	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '10.0.6.132:sapgw00' broken
+TIME        Fri May 12 15:52:18 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=10.0.6.132:3300; L=0.0.0.0:59846
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-05-29 15:46:29.448306 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.3, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-29 15:46:29.448548 [18544] >> Error entry
+	[Handle: 46763296	ConvID: 65240230	Target: SAP03	SysID: AED	SysNr: 00	User: D_RNKUCUK	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner '192.168.4.16:sapgw00' broken
+TIME        Mon May 29 15:46:29 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=192.168.4.16:3300; L=0.0.0.0:53937
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     5
+
+
+**** Log file opened at 2023-05-29 18:08:00.673931 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.3, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-05-29 18:08:00.674117 [21280] >> Error entry
+	[Handle: 46237912	ConvID: 74836011	Target: SAP03	SysID: AED	SysNr: 00	User: D_RNKUCUK	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host
+ERROR       connection to partner '192.168.4.16:sapgw00' broken
+TIME        Mon May 29 18:08:00 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=192.168.4.16:3300; L=0.0.0.0:58130
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     7
+
+
+**** Log file opened at 2023-06-02 13:57:44.656562 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.5, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-06-02 13:57:44.656745 [28744] >> Error entry
+	[Handle: 55400808	ConvID: 03652288	Target: SAP03	SysID: AED	SysNr: 00	User: D_RNKUCUK	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcCommunicationException: Return Value: 0, Code: RFC_COMMUNICATION_FAILURE, Message: 
+LOCATION    CPIC (TCP/IP) on local host TRN00088
+ERROR       connection to partner '192.168.4.16:sapgw00' broken
+TIME        Fri Jun  2 13:57:44 2023
+RELEASE     753
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -6
+MODULE      D:/depot/bas/753_REL/src/base/ni/nixxi.cpp
+LINE        5429
+DETAIL      NiIRead: P=192.168.4.16:3300; L=0.0.0.0:63704
+SYSTEM CALL recv
+ERRNO       10054
+ERRNO TEXT  WSAECONNRESET: Connection reset by peer
+COUNTER     4
+
+
+**** Log file opened at 2023-09-08 17:51:55.876904 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.9, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-09-08 17:51:55.877780 [22640] >> Error entry
+	[Handle: 13987224	ConvID: 09599917	Target: vhmamrq7ap01.sap.Erkunt.com.tr	SysID: RQ7	SysNr: 00	User: D_MTANRI	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
+
+**** Log file opened at 2023-09-08 17:56:52.123608 UTC+03:00 (Turkey Standard Time), Encoding UTF-8
+NW RFC Library: Kernel variant, Release 750 Patch Level 7, Compiled on Sep 20 2020 21:37:07
+ CPIC library: 753.2020.09.14 version 3, NI library: 40, Kernel Release: 753 Patch Level 711
+ Current working directory: C:\Users\10119350\Documents\SAP\SAP GUI, Program: gneux
+ Hardware: PC with Windows NT 8x Intel 80686 (Mod 140 Step 1), Operating_system: Windows NT 10.0
+ Hostname: TRN00088, IP address: 192.168.1.9, IPv6 address: fe80::a3c7:288c:3207:1dec
+
+2023-09-08 17:56:52.123967 [20656] >> Error entry
+	[Handle: 7892112	ConvID: 09920624	Target: vhmamrq7ap01.sap.Erkunt.com.tr	SysID: RQ7	SysNr: 00	User: D_MTANRI	type: 2	stateful Connections: 0	GwHost: 	GwServ: 3300		ProgrammID: 	Codepage: 1614]
+	RfcSystemException: Key: CALLBACK_REJECTED_BY_WHITELIST, Code: RFC_ABAP_RUNTIME_FAILURE, Message: RFC callback call rejected by positive list
