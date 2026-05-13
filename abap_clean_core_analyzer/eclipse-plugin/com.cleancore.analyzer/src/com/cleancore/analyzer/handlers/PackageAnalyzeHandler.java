@@ -41,6 +41,7 @@ import org.eclipse.ui.texteditor.ITextEditor;
 import com.cleancore.analyzer.core.ABAPAnalyzer;
 import com.cleancore.analyzer.core.Finding;
 import com.cleancore.analyzer.ui.CleanCoreResultView;
+import com.cleancore.analyzer.ui.DiagnosticDialog;
 
 /**
  * Handler for analysing one or many ABAP objects/packages selected in the
@@ -108,34 +109,33 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         }
 
         if (sources.isEmpty()) {
-            final String detail = errors.isEmpty()
+            String detail = errors.isEmpty()
                 ? "Secilen elemanlardan kaynak kod okunamadi."
                 : "Hatalar:\n - " + String.join("\n - ",
                     errors.subList(0, Math.min(errors.size(), 10)));
 
-            // Build automatic diagnostic report — includes the actual Java class
-            // of each selected node so wrapper types (Favorite Packages etc.)
-            // can be fixed without guessing.
-            String diagnostic = "";
-            try {
-                diagnostic = InspectSelectionHandler.buildReport(ss, activePart);
-            } catch (Throwable ignored) {}
-
-            String body =
-                "Secilen elemanlardan ABAP kaynak kodu okunamadi.\n\n"
+            String header =
+                "Analiz hic obje uretemedi - tani raporu asagidadir.\n\n"
                 + detail + "\n\n"
                 + "Oneriler:\n"
-                + "  - Aktif ABAP projesinde olduğunuzdan emin olun (ADT baglantisi)\n"
+                + "  - Aktif ABAP projesinde oldugunuzdan emin olun (ADT baglantisi)\n"
                 + "  - Objeyi editor'de acin ve Ctrl+Shift+K kullanin\n"
                 + "  - Veya dogrudan class/program dugumunu sag tiklayin\n"
                 + "  - Favorite Packages yerine ABAP Repository altindan ayni\n"
-                + "    pakete sag tiklamayi deneyin\n\n"
-                + (diagnostic.isEmpty()
-                    ? ""
-                    : "Diagnostic Report:\n" +
-                      "==================\n" + diagnostic);
-            InspectSelectionHandler.openReport(shell,
-                "Clean Core Analyzer - Analiz Basarisiz", body);
+                + "    pakete sag tik deneyin\n"
+                + "  - Veya 'Inspect Selection (Clean Core Diagnostic)' komutunu\n"
+                + "    (Ctrl+Shift+I) kullanin";
+
+            String report = "";
+            try {
+                report = SelectionDiagnostic.collectAll(ss.toList(), activePart);
+            } catch (Throwable t) {
+                report = "Diagnostic collect failed: " + t.getMessage();
+            }
+
+            DiagnosticDialog.show(shell,
+                "Clean Core Analyzer - Analiz Basarisiz",
+                header, report);
             return null;
         }
 

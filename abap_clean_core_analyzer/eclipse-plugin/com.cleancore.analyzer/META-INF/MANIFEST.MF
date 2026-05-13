@@ -13,6 +13,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.ui.navigator;resolution:=optional,
+ org.eclipse.ui.views;resolution:=optional,
  com.sap.adt.tools.core;resolution:=optional,
  com.sap.adt.communication;resolution:=optional,
  com.sap.adt.tools.abapsource;resolution:=optional
