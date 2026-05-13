@@ -141,7 +141,7 @@ public final class AdtTraverser {
     /** Walk node → IProject → IAbapProject → destinationId. All reflective. */
     public static String getDestinationId(Object node) {
         if (node == null) return null;
-        IProject project = adaptToProject(node);
+        IProject project = resolveProjectAnyWay(node);
         if (project == null) return null;
 
         try {
@@ -163,16 +163,105 @@ public final class AdtTraverser {
         return null;
     }
 
+    /**
+     * Best-effort IProject resolution. First tries direct adaptation
+     * (IAdaptable.getAdapter(IProject.class) and node.getProject()). If that
+     * fails, walks up TreeNode-style parent chain — required for
+     * VirtualFolderNode (Favorite Packages category) and similar wrappers
+     * whose project association lives on a parent node.
+     */
+    public static IProject resolveProjectAnyWay(Object node) {
+        if (node == null) return null;
+        IProject direct = adaptToProject(node);
+        if (direct != null) return direct;
+
+        // Walk parent chain (TreeNode.getParent etc.)
+        Object cur = node;
+        for (int depth = 0; depth < 12; depth++) {
+            Object parent = tryInvoke(cur, "getParent");
+            if (parent == null || parent == cur) break;
+            IProject p = adaptToProject(parent);
+            if (p != null) return p;
+            cur = parent;
+        }
+        return null;
+    }
+
     private static IProject adaptToProject(Object node) {
+        if (node == null) return null;
         if (node instanceof IProject) return (IProject) node;
         if (node instanceof IAdaptable) {
             Object p = ((IAdaptable) node).getAdapter(IProject.class);
             if (p instanceof IProject) return (IProject) p;
         }
-        // Try a getProject() method
+        // Try a getProject() method (covers IProjectProvider)
         Object p = tryInvoke(node, "getProject");
         if (p instanceof IProject) return (IProject) p;
         return null;
+    }
+
+    // ── Direct repository object lists (VirtualFolderNode etc.) ──────
+
+    /**
+     * Some ADT Project Explorer nodes (notably {@code VirtualFolderNode} used
+     * for "Favorite Packages" categories and for search hits) implement
+     * {@code IAbapRepositoryObjectListProvider} and similar interfaces that
+     * expose the contained {@code IAdtObjectReference} list directly —
+     * bypassing the lazy CommonNavigator content provider that otherwise
+     * returns a {@code WaitMessageNode} placeholder.
+     *
+     * @return list of IAdtObjectReference (as raw {@code Object}); empty list
+     *         if the node has no such API, never {@code null}
+     */
+    public static List<Object> getDirectRepositoryObjects(Object node) {
+        List<Object> out = new ArrayList<>();
+        if (node == null) return out;
+        Class<?> refCls;
+        try { refCls = Class.forName(IADTOBJECT_REF); }
+        catch (Throwable t) { return out; }
+
+        String[] candidates = new String[] {
+            "getRepositoryObjects",
+            "getAbapRepositoryObjects",
+            "getObjectReferences",
+            "getObjectReferenceList",
+            "getReferences",
+            "getObjects",
+            "getAdtObjectReferences",
+            "getElements"
+        };
+        for (String mname : candidates) {
+            Object r = tryInvoke(node, mname);
+            if (r == null) continue;
+            collectReferences(r, refCls, out);
+            if (!out.isEmpty()) return out;
+        }
+        // Fallback: try unwrapped inner node
+        Object inner = unwrapWrapperNode(node);
+        if (inner != null && inner != node) {
+            for (String mname : candidates) {
+                Object r = tryInvoke(inner, mname);
+                if (r == null) continue;
+                collectReferences(r, refCls, out);
+                if (!out.isEmpty()) return out;
+            }
+        }
+        return out;
+    }
+
+    private static void collectReferences(Object r, Class<?> refCls,
+                                          List<Object> out) {
+        if (r instanceof Iterable) {
+            for (Object o : (Iterable<?>) r) {
+                if (o != null && refCls.isInstance(o)) out.add(o);
+            }
+        } else if (r.getClass().isArray()) {
+            int len = java.lang.reflect.Array.getLength(r);
+            for (int i = 0; i < len; i++) {
+                Object o = java.lang.reflect.Array.get(r, i);
+                if (o != null && refCls.isInstance(o)) out.add(o);
+            }
+        }
     }
 
     // ── Children listing via nodestructure REST ──────────────────────

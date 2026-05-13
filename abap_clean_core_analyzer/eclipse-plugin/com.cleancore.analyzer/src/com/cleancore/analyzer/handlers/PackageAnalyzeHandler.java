@@ -209,6 +209,22 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             return;
         }
 
+        // Strategy A-fallback 2: direct repository objects without IAdtObjectReference
+        //   (covers VirtualFolderNode-style wrappers whose adtRef path
+        //    didn't trigger because the wrapper itself reports no DEVC type)
+        List<Object> directRefs = AdtTraverser.getDirectRepositoryObjects(node);
+        if (directRefs != null && !directRefs.isEmpty()) {
+            Set<String> visited = new HashSet<>();
+            String destId = AdtTraverser.getDestinationId(node);
+            for (Object ref : directRefs) {
+                if (monitor.isCanceled() || sources.size() >= limit) return;
+                processDirectReference(ref, destId, activePart,
+                                       sources, errors, monitor, visited,
+                                       limit, processed);
+            }
+            return;
+        }
+
         // Strategy B: IResource adapter (file-backed projects)
         IResource resource = adaptToResource(node);
         if (resource != null) {
@@ -257,6 +273,23 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         if (monitor.isCanceled() || sources.size() >= limit) return;
 
         monitor.subTask("Paket okunuyor: " + packageName);
+
+        // 0) Direct repository objects (VirtualFolderNode for Favorite Packages,
+        //    search hits etc. that implement IAbapRepositoryObjectListProvider)
+        if (packageNode != null) {
+            List<Object> directRefs =
+                AdtTraverser.getDirectRepositoryObjects(packageNode);
+            if (directRefs != null && !directRefs.isEmpty()) {
+                for (Object ref : directRefs) {
+                    if (monitor.isCanceled() || sources.size() >= limit) return;
+                    processDirectReference(ref, destId, activePart,
+                                           sources, errors,
+                                           monitor, visited,
+                                           limit, processed);
+                }
+                return;
+            }
+        }
 
         // 1) Try workbench adapter first (no REST round-trip)
         List<String> diag = new ArrayList<>();
@@ -307,6 +340,47 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             }
             updateMonitor(monitor, processed, name);
         }
+    }
+
+    /**
+     * Handle a single {@code IAdtObjectReference} returned by a direct
+     * repository-object provider (VirtualFolderNode etc.). Recurses into
+     * subpackages via REST and fetches source for any analyzable type.
+     */
+    private void processDirectReference(Object ref, String destId,
+                                        IWorkbenchPart activePart,
+                                        Map<String, String> sources,
+                                        List<String> errors,
+                                        IProgressMonitor monitor,
+                                        Set<String> visited,
+                                        int limit, int[] processed) {
+        if (ref == null) return;
+        String type = AdtTraverser.getObjectType(ref);
+        String name = AdtTraverser.getObjectName(ref);
+        String uri  = AdtTraverser.getObjectUri(ref);
+        if (name == null || name.isEmpty()) return;
+
+        if (AdtTraverser.isPackage(type)) {
+            // Recurse into subpackage (no live node, REST traversal)
+            traversePackage(null, name, destId, activePart,
+                            sources, errors, monitor,
+                            visited, limit, processed);
+            return;
+        }
+        if (!AdtTraverser.isAnalyzable(type)) return;
+        if (sources.containsKey(name)) return;
+
+        monitor.subTask((processed[0] + 1) + " / " + limit + ": "
+                        + name + " (" + type + ")");
+        AdtRestParser.NodeInfo info =
+            new AdtRestParser.NodeInfo(type, name, uri);
+        String src = AdtTraverser.fetchSource(destId, info, monitor);
+        if (src != null && !src.trim().isEmpty()) {
+            sources.put(name, src);
+        } else {
+            errors.add(name + ": kaynak kod okunamadi (" + type + ")");
+        }
+        updateMonitor(monitor, processed, name);
     }
 
     /**
