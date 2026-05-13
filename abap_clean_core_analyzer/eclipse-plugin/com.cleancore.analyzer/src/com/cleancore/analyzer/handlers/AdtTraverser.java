@@ -13,6 +13,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.model.IWorkbenchAdapter;
+import org.eclipse.ui.progress.IDeferredWorkbenchAdapter;
+import org.eclipse.ui.progress.IElementCollector;
 
 /**
  * Reflection-based bridge to ADT (com.sap.adt.*) internal APIs.
@@ -137,6 +141,173 @@ public final class AdtTraverser {
     }
 
     // ── Children listing via nodestructure REST ──────────────────────
+
+    /**
+     * Expands a Project Explorer node into its direct children using
+     * pure Eclipse standard APIs. Tries, in order:
+     *   1. {@link IWorkbenchAdapter#getChildren(Object)} (synchronous)
+     *   2. {@link IDeferredWorkbenchAdapter#fetchDeferredChildren} (async, we collect)
+     *   3. {@link IWorkbenchPart} active-part navigator content provider
+     *
+     * Returns an empty array if none worked. Never throws.
+     */
+    public static Object[] expandChildrenViaWorkbench(Object node,
+                                                      IWorkbenchPart activePart,
+                                                      IProgressMonitor monitor) {
+        return expandChildrenViaWorkbench(node, activePart, monitor, null);
+    }
+
+    /**
+     * Diagnostic variant: if {@code reasons} is non-null, each strategy that was
+     * tried but produced no children is reported into it.
+     */
+    public static Object[] expandChildrenViaWorkbench(Object node,
+                                                      IWorkbenchPart activePart,
+                                                      IProgressMonitor monitor,
+                                                      List<String> reasons) {
+        if (node == null) {
+            if (reasons != null) reasons.add("node is null");
+            return new Object[0];
+        }
+        if (monitor == null) monitor = new NullProgressMonitor();
+
+        // 1) IWorkbenchAdapter
+        try {
+            IWorkbenchAdapter wa = adapt(node, IWorkbenchAdapter.class);
+            if (wa != null) {
+                Object[] kids = wa.getChildren(node);
+                if (kids != null && kids.length > 0) return kids;
+                if (reasons != null) {
+                    reasons.add("IWorkbenchAdapter returned 0 children");
+                }
+            } else if (reasons != null) {
+                reasons.add("IWorkbenchAdapter not adaptable");
+            }
+        } catch (Throwable t) {
+            if (reasons != null) {
+                reasons.add("IWorkbenchAdapter threw: " + t.getClass().getSimpleName());
+            }
+        }
+
+        // 2) IDeferredWorkbenchAdapter (ADT uses this for lazy loading)
+        try {
+            IDeferredWorkbenchAdapter dwa = adapt(node, IDeferredWorkbenchAdapter.class);
+            if (dwa != null) {
+                final List<Object> collected = new ArrayList<>();
+                final java.util.concurrent.CountDownLatch latch =
+                    new java.util.concurrent.CountDownLatch(1);
+                IElementCollector collector = new IElementCollector() {
+                    @Override
+                    public void add(Object element, IProgressMonitor mon) {
+                        if (element != null) {
+                            synchronized (collected) { collected.add(element); }
+                        }
+                    }
+                    @Override
+                    public void add(Object[] elements, IProgressMonitor mon) {
+                        if (elements != null) {
+                            synchronized (collected) {
+                                for (Object e : elements) {
+                                    if (e != null) collected.add(e);
+                                }
+                            }
+                        }
+                    }
+                    @Override
+                    public void done() { latch.countDown(); }
+                };
+                dwa.fetchDeferredChildren(node, collector, monitor);
+                try {
+                    // Asynchronous adapter — wait up to 30s for it to finish.
+                    latch.await(30, java.util.concurrent.TimeUnit.SECONDS);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                synchronized (collected) {
+                    if (!collected.isEmpty()) {
+                        return collected.toArray();
+                    }
+                }
+                if (reasons != null) {
+                    reasons.add("IDeferredWorkbenchAdapter returned 0 children (timeout or empty)");
+                }
+            } else if (reasons != null) {
+                reasons.add("IDeferredWorkbenchAdapter not adaptable");
+            }
+        } catch (Throwable t) {
+            if (reasons != null) {
+                reasons.add("IDeferredWorkbenchAdapter threw: " + t.getClass().getSimpleName());
+            }
+        }
+
+        // 3) CommonNavigator content provider (Project Explorer)
+        try {
+            Object[] kids = expandViaContentProvider(activePart, node);
+            if (kids != null && kids.length > 0) return kids;
+            if (reasons != null) {
+                reasons.add("CommonNavigator content provider returned no children"
+                    + (activePart == null ? " (activePart null)" : ""));
+            }
+        } catch (Throwable t) {
+            if (reasons != null) {
+                reasons.add("CommonNavigator content provider threw: "
+                    + t.getClass().getSimpleName());
+            }
+        }
+
+        return new Object[0];
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T> T adapt(Object obj, Class<T> cls) {
+        if (cls.isInstance(obj)) return (T) obj;
+        if (obj instanceof IAdaptable) {
+            Object a = ((IAdaptable) obj).getAdapter(cls);
+            if (a != null) return (T) a;
+        }
+        // org.eclipse.core.runtime.Adapters.adapt would do it too, but we
+        // keep the dependency minimal.
+        return null;
+    }
+
+    private static Object[] expandViaContentProvider(IWorkbenchPart activePart,
+                                                     Object node) {
+        if (activePart == null) return null;
+        try {
+            // CommonNavigator.getCommonViewer()
+            Method gcv = findNoArg(activePart.getClass(), "getCommonViewer");
+            if (gcv == null) gcv = findNoArg(activePart.getClass(), "getViewer");
+            if (gcv == null) return null;
+            Object viewer = gcv.invoke(activePart);
+            if (viewer == null) return null;
+            Method gcp = findNoArg(viewer.getClass(), "getContentProvider");
+            if (gcp == null) return null;
+            Object provider = gcp.invoke(viewer);
+            if (provider == null) return null;
+            Method gc = findMethod(provider.getClass(), "getChildren", Object.class);
+            if (gc == null) return null;
+            Object result = gc.invoke(provider, node);
+            if (result instanceof Object[]) return (Object[]) result;
+        } catch (Throwable ignored) {}
+        return null;
+    }
+
+    private static Method findNoArg(Class<?> c, String name) {
+        try { return c.getMethod(name); } catch (NoSuchMethodException e) {}
+        Class<?> cur = c;
+        while (cur != null) {
+            for (Method m : cur.getDeclaredMethods()) {
+                if (m.getName().equals(name) && m.getParameterCount() == 0) {
+                    m.setAccessible(true);
+                    return m;
+                }
+            }
+            cur = cur.getSuperclass();
+        }
+        return null;
+    }
+
+    // ── Children listing via nodestructure REST (kept as last-resort) ──
 
     /**
      * Lists child nodes of an ADT package using the

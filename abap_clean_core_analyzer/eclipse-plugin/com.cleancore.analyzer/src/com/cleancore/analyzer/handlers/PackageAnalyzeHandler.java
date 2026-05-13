@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -64,6 +65,7 @@ public class PackageAnalyzeHandler extends AbstractHandler {
     public Object execute(ExecutionEvent event) throws ExecutionException {
         ISelection sel = HandlerUtil.getCurrentSelection(event);
         final Shell shell = HandlerUtil.getActiveShell(event);
+        final IWorkbenchPart activePart = HandlerUtil.getActivePart(event);
 
         if (!(sel instanceof IStructuredSelection)
                 || ((IStructuredSelection) sel).isEmpty()) {
@@ -92,8 +94,8 @@ public class PackageAnalyzeHandler extends AbstractHandler {
                         if (monitor.isCanceled()) break;
                         if (sources.size() >= limit) break;
                         try {
-                            collectAny(obj, sources, errors, monitor, limit,
-                                       processedCounter);
+                            collectAny(obj, activePart, sources, errors,
+                                       monitor, limit, processedCounter);
                         } catch (Exception ex) {
                             errors.add(safeName(obj) + ": " + ex.getMessage());
                         }
@@ -143,7 +145,8 @@ public class PackageAnalyzeHandler extends AbstractHandler {
 
     // ── Top-level dispatch ───────────────────────────────────────────
 
-    private void collectAny(Object node, Map<String, String> sources,
+    private void collectAny(Object node, IWorkbenchPart activePart,
+                            Map<String, String> sources,
                             List<String> errors, IProgressMonitor monitor,
                             int limit, int[] processed) {
         if (node == null) return;
@@ -157,7 +160,8 @@ public class PackageAnalyzeHandler extends AbstractHandler {
 
             if (AdtTraverser.isPackage(type)) {
                 Set<String> visited = new HashSet<>();
-                traversePackage(name, destId, sources, errors, monitor,
+                traversePackage(node, name, destId, activePart,
+                                sources, errors, monitor,
                                 visited, limit, processed);
                 return;
             }
@@ -174,6 +178,17 @@ public class PackageAnalyzeHandler extends AbstractHandler {
                 return;
             }
             // Interface/Table/DDLS etc. – filtered out by user choice
+            return;
+        }
+
+        // Strategy A-fallback: workbench adapter (even without IAdtObjectReference)
+        Object[] kids = AdtTraverser.expandChildrenViaWorkbench(node, activePart, monitor);
+        if (kids != null && kids.length > 0) {
+            Set<String> visited = new HashSet<>();
+            String parentName = extractName(node);
+            traversePackageByWorkbench(node, parentName, activePart,
+                                       sources, errors, monitor,
+                                       visited, limit, processed);
             return;
         }
 
@@ -197,7 +212,14 @@ public class PackageAnalyzeHandler extends AbstractHandler {
 
     // ── Package recursive traversal ──────────────────────────────────
 
-    private void traversePackage(String packageName, String destId,
+    /**
+     * Hybrid traversal:
+     *   - If the live workbench gives us children (IWorkbenchAdapter /
+     *     IDeferredWorkbenchAdapter), we recurse on those node objects directly.
+     *   - Otherwise we fall back to nodestructure REST.
+     */
+    private void traversePackage(Object packageNode, String packageName,
+                                 String destId, IWorkbenchPart activePart,
                                  Map<String, String> sources,
                                  List<String> errors,
                                  IProgressMonitor monitor,
@@ -208,11 +230,29 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         if (monitor.isCanceled() || sources.size() >= limit) return;
 
         monitor.subTask("Paket okunuyor: " + packageName);
+
+        // 1) Try workbench adapter first (no REST round-trip)
+        List<String> diag = new ArrayList<>();
+        Object[] kids = AdtTraverser.expandChildrenViaWorkbench(
+            packageNode, activePart, monitor, diag);
+        if (kids != null && kids.length > 0) {
+            for (Object child : kids) {
+                if (monitor.isCanceled() || sources.size() >= limit) return;
+                handleWorkbenchChild(child, activePart, sources, errors,
+                                     monitor, visited, limit, processed, destId);
+            }
+            return;
+        }
+
+        // 2) Fall back to nodestructure REST
         List<AdtRestParser.NodeInfo> children =
             AdtTraverser.listPackageChildren(destId, packageName, monitor);
 
         if (children == null || children.isEmpty()) {
-            errors.add(packageName + ": cocuk obje listelenemedi");
+            String reasonText = diag.isEmpty() ? "" : " [" + String.join("; ", diag) + "]";
+            errors.add(packageName
+                + ": cocuk obje listelenemedi (REST + workbench adapter bos)"
+                + reasonText);
             return;
         }
 
@@ -222,7 +262,8 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             String name = child.name;
 
             if (AdtTraverser.isPackage(type)) {
-                traversePackage(name, destId, sources, errors,
+                traversePackage(null, name, destId, activePart,
+                                sources, errors,
                                 monitor, visited, limit, processed);
                 continue;
             }
@@ -239,6 +280,101 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             }
             updateMonitor(monitor, processed, name);
         }
+    }
+
+    /**
+     * Traversal that only uses workbench adapter (used when there is no
+     * ADT reference at all on the selected node, but it still has children).
+     */
+    private void traversePackageByWorkbench(Object packageNode, String label,
+                                            IWorkbenchPart activePart,
+                                            Map<String, String> sources,
+                                            List<String> errors,
+                                            IProgressMonitor monitor,
+                                            Set<String> visited,
+                                            int limit, int[] processed) {
+        if (label != null) {
+            if (visited.contains(label)) return;
+            visited.add(label);
+        }
+        if (monitor.isCanceled() || sources.size() >= limit) return;
+
+        monitor.subTask("Genisletiliyor: " + (label == null ? "?" : label));
+        Object[] kids = AdtTraverser.expandChildrenViaWorkbench(
+            packageNode, activePart, monitor);
+        if (kids == null || kids.length == 0) {
+            errors.add((label == null ? "?" : label)
+                + ": workbench adapter ile cocuk yok");
+            return;
+        }
+        for (Object child : kids) {
+            if (monitor.isCanceled() || sources.size() >= limit) return;
+            handleWorkbenchChild(child, activePart, sources, errors,
+                                 monitor, visited, limit, processed, null);
+        }
+    }
+
+    /**
+     * Process a single child returned by IWorkbenchAdapter / content provider.
+     * Decides whether it is a package (recurse) or an ABAP object (fetch).
+     */
+    private void handleWorkbenchChild(Object child, IWorkbenchPart activePart,
+                                      Map<String, String> sources,
+                                      List<String> errors,
+                                      IProgressMonitor monitor,
+                                      Set<String> visited,
+                                      int limit, int[] processed,
+                                      String destId) {
+        if (child == null) return;
+
+        Object adtRef = AdtTraverser.getAdtObjectReference(child);
+        String type = adtRef != null ? AdtTraverser.getObjectType(adtRef) : null;
+        String name = adtRef != null ? AdtTraverser.getObjectName(adtRef) : null;
+        if (name == null) name = extractName(child);
+        if (destId == null && adtRef != null) {
+            destId = AdtTraverser.getDestinationId(child);
+        }
+
+        if (type != null && AdtTraverser.isPackage(type)) {
+            traversePackage(child, name, destId, activePart,
+                            sources, errors,
+                            monitor, visited, limit, processed);
+            return;
+        }
+
+        // No reference / no recognised type → try to expand further;
+        // it may be a "Source Library" / "Classes" group node in the tree.
+        if (type == null) {
+            // Recurse if it has children (category nodes), but cap recursion
+            // by 'visited' set on the produced label.
+            String label = "GRP:" + name;
+            if (visited.contains(label)) return;
+            visited.add(label);
+            Object[] more = AdtTraverser.expandChildrenViaWorkbench(
+                child, activePart, monitor);
+            if (more != null && more.length > 0) {
+                for (Object m : more) {
+                    if (monitor.isCanceled() || sources.size() >= limit) return;
+                    handleWorkbenchChild(m, activePart, sources, errors,
+                                         monitor, visited, limit, processed, destId);
+                }
+            }
+            return;
+        }
+
+        if (!AdtTraverser.isAnalyzable(type)) return;
+        if (name == null || sources.containsKey(name)) return;
+
+        monitor.subTask((processed[0] + 1) + " / " + limit + ": "
+                        + name + " (" + type + ")");
+
+        String src = fetchSourceChain(adtRef, child, destId, name);
+        if (src != null && !src.trim().isEmpty()) {
+            sources.put(name, src);
+        } else {
+            errors.add(name + ": kaynak kod okunamadi (" + type + ")");
+        }
+        updateMonitor(monitor, processed, name);
     }
 
     private void updateMonitor(IProgressMonitor monitor, int[] processed,
