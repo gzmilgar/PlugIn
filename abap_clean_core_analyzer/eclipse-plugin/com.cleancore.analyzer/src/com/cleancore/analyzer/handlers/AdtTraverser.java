@@ -47,18 +47,53 @@ public final class AdtTraverser {
         if (node == null) return null;
         try {
             Class<?> refCls = Class.forName(IADTOBJECT_REF);
-            if (refCls.isInstance(node)) return node;
-            if (node instanceof IAdaptable) {
-                Object r = ((IAdaptable) node).getAdapter(refCls);
-                if (r != null) return r;
-            }
-            // Some ADT nodes have getReference() / getObjectReference()
-            for (String mname : new String[] {
-                    "getObjectReference", "getReference", "getAdtObjectReference" }) {
-                Object r = tryInvoke(node, mname);
-                if (r != null && refCls.isInstance(r)) return r;
+            Object cur = node;
+            // Up to 4 unwrap levels (favorite -> package -> ref etc.)
+            for (int depth = 0; depth < 4 && cur != null; depth++) {
+                if (refCls.isInstance(cur)) return cur;
+                if (cur instanceof IAdaptable) {
+                    Object r = ((IAdaptable) cur).getAdapter(refCls);
+                    if (r != null) return r;
+                }
+                for (String mname : new String[] {
+                        "getObjectReference", "getReference", "getAdtObjectReference" }) {
+                    Object r = tryInvoke(cur, mname);
+                    if (r != null && refCls.isInstance(r)) return r;
+                }
+                Object inner = unwrapWrapperNode(cur);
+                if (inner == null || inner == cur) break;
+                cur = inner;
             }
         } catch (Throwable ignored) {}
+        return null;
+    }
+
+    /**
+     * Some Project Explorer extensions wrap the real ADT node inside a
+     * container object (e.g. Favorite Packages, recent objects, search hits).
+     * This tries a list of common getter names to retrieve the underlying
+     * node. Returns {@code null} if no unwrap is possible.
+     */
+    public static Object unwrapWrapperNode(Object node) {
+        if (node == null) return null;
+        String cn = node.getClass().getName();
+        // Cheap heuristic – never recurse from a plain ABAP object.
+        if (cn.startsWith("java.")) return null;
+
+        for (String mname : new String[] {
+                "getElement", "getDelegate", "getReferencedObject",
+                "getReferenced", "getReference", "getWrappedNode",
+                "getWrapped", "getNode", "getPackage", "getValue",
+                "getTarget", "getModel", "getModelObject",
+                "getFavoritePackage", "getAdtPackage", "getAdtNode",
+                "getAdtObject" }) {
+            Object v = tryInvoke(node, mname);
+            if (v == null || v == node) continue;
+            // Skip primitives / strings / collections – not what we want.
+            String vc = v.getClass().getName();
+            if (vc.startsWith("java.lang.") || vc.startsWith("java.util.")) continue;
+            return v;
+        }
         return null;
     }
 

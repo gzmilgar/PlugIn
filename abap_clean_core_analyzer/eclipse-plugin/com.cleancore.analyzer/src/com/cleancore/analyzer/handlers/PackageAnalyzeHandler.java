@@ -112,13 +112,30 @@ public class PackageAnalyzeHandler extends AbstractHandler {
                 ? "Secilen elemanlardan kaynak kod okunamadi."
                 : "Hatalar:\n - " + String.join("\n - ",
                     errors.subList(0, Math.min(errors.size(), 10)));
-            MessageDialog.openWarning(shell, "Clean Core Analyzer",
+
+            // Build automatic diagnostic report — includes the actual Java class
+            // of each selected node so wrapper types (Favorite Packages etc.)
+            // can be fixed without guessing.
+            String diagnostic = "";
+            try {
+                diagnostic = InspectSelectionHandler.buildReport(ss, activePart);
+            } catch (Throwable ignored) {}
+
+            String body =
                 "Secilen elemanlardan ABAP kaynak kodu okunamadi.\n\n"
                 + detail + "\n\n"
                 + "Oneriler:\n"
                 + "  - Aktif ABAP projesinde olduğunuzdan emin olun (ADT baglantisi)\n"
                 + "  - Objeyi editor'de acin ve Ctrl+Shift+K kullanin\n"
-                + "  - Veya dogrudan class/program dugumunu sag tiklayin");
+                + "  - Veya dogrudan class/program dugumunu sag tiklayin\n"
+                + "  - Favorite Packages yerine ABAP Repository altindan ayni\n"
+                + "    pakete sag tiklamayi deneyin\n\n"
+                + (diagnostic.isEmpty()
+                    ? ""
+                    : "Diagnostic Report:\n" +
+                      "==================\n" + diagnostic);
+            InspectSelectionHandler.openReport(shell,
+                "Clean Core Analyzer - Analiz Basarisiz", body);
             return null;
         }
 
@@ -208,6 +225,16 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             }
         }
         updateMonitor(monitor, processed, name);
+
+        // Strategy D: nothing matched – try to unwrap wrapper nodes
+        //             (Favorite Packages, search hits, recently-used etc.)
+        if (sources.isEmpty() || !sources.containsKey(name)) {
+            Object inner = AdtTraverser.unwrapWrapperNode(node);
+            if (inner != null && inner != node) {
+                collectAny(inner, activePart, sources, errors,
+                           monitor, limit, processed);
+            }
+        }
     }
 
     // ── Package recursive traversal ──────────────────────────────────

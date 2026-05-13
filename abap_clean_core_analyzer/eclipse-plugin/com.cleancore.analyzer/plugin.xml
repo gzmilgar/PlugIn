@@ -13,6 +13,11 @@
             name="Analyze Package for Clean Core"
             description="Recursively analyze a SAP package and all its child packages / objects (Classes, Programs, Function Modules, Includes)">
       </command>
+      <command
+            id="com.cleancore.analyzer.inspectSelectionCommand"
+            name="Inspect Selection (Clean Core Diagnostic)"
+            description="Shows the actual Java class, adapters and getters of the currently selected Project Explorer node. Use this when 'Analyze Package' cannot read children.">
+      </command>
    </extension>
 
    <extension point="org.eclipse.ui.handlers">
@@ -23,6 +28,10 @@
       <handler
             commandId="com.cleancore.analyzer.analyzePackageCommand"
             class="com.cleancore.analyzer.handlers.PackageAnalyzeHandler">
+      </handler>
+      <handler
+            commandId="com.cleancore.analyzer.inspectSelectionCommand"
+            class="com.cleancore.analyzer.handlers.InspectSelectionHandler">
       </handler>
    </extension>
 
@@ -38,6 +47,11 @@
             <command
                   commandId="com.cleancore.analyzer.analyzePackageCommand"
                   label="Analyze Selected Package / Objects"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.cleancore.analyzer.inspectSelectionCommand"
+                  label="Inspect Selection (Diagnostic)"
                   style="push">
             </command>
          </menu>
@@ -63,6 +77,16 @@
                </with>
             </visibleWhen>
          </command>
+         <command
+               commandId="com.cleancore.analyzer.inspectSelectionCommand"
+               label="Inspect Selection (Clean Core Diagnostic)"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <with variable="selection">
+                  <count value="+"/>
+               </with>
+            </visibleWhen>
+         </command>
       </menuContribution>
    </extension>
 
@@ -76,6 +100,11 @@
             commandId="com.cleancore.analyzer.analyzePackageCommand"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="Ctrl+Shift+L">
+      </key>
+      <key
+            commandId="com.cleancore.analyzer.inspectSelectionCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+I">
       </key>
    </extension>
 
