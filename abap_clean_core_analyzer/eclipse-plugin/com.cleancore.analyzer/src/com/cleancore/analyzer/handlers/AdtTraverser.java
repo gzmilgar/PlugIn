@@ -7,13 +7,27 @@ import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CompletionStage;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.model.IWorkbenchAdapter;
 import org.eclipse.ui.progress.IDeferredWorkbenchAdapter;
 import org.eclipse.ui.progress.IElementCollector;
@@ -168,7 +182,9 @@ public final class AdtTraverser {
      * (IAdaptable.getAdapter(IProject.class) and node.getProject()). If that
      * fails, walks up TreeNode-style parent chain — required for
      * VirtualFolderNode (Favorite Packages category) and similar wrappers
-     * whose project association lives on a parent node.
+     * whose project association lives on a parent node. Final fallback is
+     * the workspace: if the user has a single open ABAP project, use it; or
+     * the project of the currently active editor.
      */
     public static IProject resolveProjectAnyWay(Object node) {
         if (node == null) return null;
@@ -184,7 +200,77 @@ public final class AdtTraverser {
             if (p != null) return p;
             cur = parent;
         }
+
+        // Fallback: active editor's project (if it is ABAP)
+        IProject active = findActiveAbapProject();
+        if (active != null) return active;
+
+        // Fallback: single open ABAP project in workspace (avoid ambiguity)
+        return findSingleOpenAbapProject();
+    }
+
+    private static IProject findActiveAbapProject() {
+        try {
+            IWorkbench wb = PlatformUI.getWorkbench();
+            if (wb == null) return null;
+            IWorkbenchWindow win = wb.getActiveWorkbenchWindow();
+            if (win == null) return null;
+            IWorkbenchPage page = win.getActivePage();
+            if (page == null) return null;
+            IEditorPart editor = page.getActiveEditor();
+            if (editor == null) return null;
+            IEditorInput input = editor.getEditorInput();
+            if (input == null) return null;
+
+            Object p = input.getAdapter(IProject.class);
+            if (p instanceof IProject && isAbapProject((IProject) p))
+                return (IProject) p;
+            Object f = input.getAdapter(IFile.class);
+            if (f instanceof IFile) {
+                IProject pp = ((IFile) f).getProject();
+                if (pp != null && isAbapProject(pp)) return pp;
+            }
+        } catch (Throwable ignored) {}
         return null;
+    }
+
+    private static IProject findSingleOpenAbapProject() {
+        try {
+            IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+            IProject[] projects = root.getProjects();
+            IProject first = null;
+            int count = 0;
+            for (IProject p : projects) {
+                if (p == null || !p.isOpen()) continue;
+                if (isAbapProject(p)) {
+                    if (first == null) first = p;
+                    count++;
+                    if (count > 1) {
+                        // Multiple ABAP projects open. Prefer the active one
+                        // (which we already tried via findActiveAbapProject).
+                        // Otherwise just return the first to keep moving.
+                        return first;
+                    }
+                }
+            }
+            return first;
+        } catch (Throwable t) {
+            return null;
+        }
+    }
+
+    private static boolean isAbapProject(IProject p) {
+        if (p == null) return false;
+        try {
+            Class<?> projFactoryCls = Class.forName(PROJECT_SVC_FACTORY);
+            Method create = projFactoryCls.getMethod("createProjectService");
+            Object service = create.invoke(null);
+            Object abapProject = tryInvoke(service, "getAbapProject",
+                new Class[] { IProject.class }, new Object[] { p });
+            return abapProject != null;
+        } catch (Throwable t) {
+            return false;
+        }
     }
 
     private static IProject adaptToProject(Object node) {
@@ -210,8 +296,25 @@ public final class AdtTraverser {
      * bypassing the lazy CommonNavigator content provider that otherwise
      * returns a {@code WaitMessageNode} placeholder.
      *
-     * @return list of IAdtObjectReference (as raw {@code Object}); empty list
-     *         if the node has no such API, never {@code null}
+     * <p>We do not hard-code the API method names because they differ across
+     * ADT versions. Strategy:
+     *
+     * <ol>
+     *   <li>Collect every method declared on every implemented interface
+     *       whose name contains "Object" / "Repository" / "Reference"
+     *       (case-insensitive), regardless of parameter count.</li>
+     *   <li>Add every method on the node's own class whose return type is
+     *       an array, a {@code Collection}/{@code Iterable},
+     *       a {@code Future}, or a {@code CompletionStage}.</li>
+     *   <li>For each candidate, supply default arguments
+     *       ({@code IProgressMonitor} → {@code NullProgressMonitor}, primitives
+     *       → zero/false, anything else → skip).</li>
+     *   <li>Resolve {@code Future}/{@code CompletionStage} with 10 sec timeout.</li>
+     *   <li>Walk the result, keep only {@code IAdtObjectReference} instances.</li>
+     * </ol>
+     *
+     * Returns the first candidate that yields a non-empty list of
+     * references. If nothing matches, walks one unwrap level and retries.
      */
     public static List<Object> getDirectRepositoryObjects(Object node) {
         List<Object> out = new ArrayList<>();
@@ -220,37 +323,131 @@ public final class AdtTraverser {
         try { refCls = Class.forName(IADTOBJECT_REF); }
         catch (Throwable t) { return out; }
 
-        String[] candidates = new String[] {
-            "getRepositoryObjects",
-            "getAbapRepositoryObjects",
-            "getObjectReferences",
-            "getObjectReferenceList",
-            "getReferences",
-            "getObjects",
-            "getAdtObjectReferences",
-            "getElements"
-        };
-        for (String mname : candidates) {
-            Object r = tryInvoke(node, mname);
-            if (r == null) continue;
-            collectReferences(r, refCls, out);
-            if (!out.isEmpty()) return out;
+        List<Method> candidates = collectRefCandidateMethods(node);
+        for (Method m : candidates) {
+            Object[] args = supplyArgs(m);
+            if (args == null) continue;
+            try {
+                m.setAccessible(true);
+                Object r = m.invoke(node, args);
+                r = resolveAsync(r);
+                if (r == null) continue;
+                List<Object> tmp = new ArrayList<>();
+                collectReferences(r, refCls, tmp);
+                if (!tmp.isEmpty()) {
+                    out.addAll(tmp);
+                    return out;
+                }
+            } catch (Throwable ignored) {}
         }
+
         // Fallback: try unwrapped inner node
         Object inner = unwrapWrapperNode(node);
         if (inner != null && inner != node) {
-            for (String mname : candidates) {
-                Object r = tryInvoke(inner, mname);
-                if (r == null) continue;
-                collectReferences(r, refCls, out);
-                if (!out.isEmpty()) return out;
-            }
+            List<Object> innerObjs = getDirectRepositoryObjects(inner);
+            if (innerObjs != null) out.addAll(innerObjs);
         }
         return out;
     }
 
+    private static List<Method> collectRefCandidateMethods(Object node) {
+        Set<Method> set = new LinkedHashSet<>();
+
+        // 1) Methods declared on each implemented interface that smell like
+        //    object/repository/reference list providers.
+        Set<Class<?>> ifaces = new LinkedHashSet<>();
+        collectAllInterfaces(node.getClass(), ifaces);
+        for (Class<?> i : ifaces) {
+            String n = i.getName().toLowerCase();
+            if (!(n.contains("object") || n.contains("repository")
+                  || n.contains("reference") || n.contains("provider"))) continue;
+            for (Method m : i.getMethods()) {
+                if (!m.getName().toLowerCase().startsWith("get")) continue;
+                set.add(m);
+            }
+            for (Method m : i.getDeclaredMethods()) {
+                if (!m.getName().toLowerCase().startsWith("get")) continue;
+                set.add(m);
+            }
+        }
+
+        // 2) Methods on the node's own class with collection/array/future
+        //    return types.
+        Class<?> cur = node.getClass();
+        while (cur != null && !cur.equals(Object.class)) {
+            for (Method m : cur.getDeclaredMethods()) {
+                if (!m.getName().toLowerCase().startsWith("get")) continue;
+                Class<?> rt = m.getReturnType();
+                if (rt.isArray()
+                    || Iterable.class.isAssignableFrom(rt)
+                    || Future.class.isAssignableFrom(rt)
+                    || CompletionStage.class.isAssignableFrom(rt)) {
+                    set.add(m);
+                }
+            }
+            cur = cur.getSuperclass();
+        }
+        return new ArrayList<>(set);
+    }
+
+    private static void collectAllInterfaces(Class<?> c, Set<Class<?>> out) {
+        while (c != null && !c.equals(Object.class)) {
+            for (Class<?> i : c.getInterfaces()) {
+                if (out.add(i)) collectAllInterfaces(i, out);
+            }
+            c = c.getSuperclass();
+        }
+    }
+
+    private static Object[] supplyArgs(Method m) {
+        Class<?>[] types = m.getParameterTypes();
+        Object[] args = new Object[types.length];
+        for (int i = 0; i < types.length; i++) {
+            Class<?> t = types[i];
+            if (IProgressMonitor.class.isAssignableFrom(t)) {
+                args[i] = new NullProgressMonitor();
+            } else if (t.isPrimitive()) {
+                args[i] = defaultPrimitive(t);
+            } else if (t.equals(String.class)) {
+                args[i] = "";
+            } else if (t.equals(Object.class)) {
+                args[i] = null;
+            } else {
+                return null; // unsupported param type → skip
+            }
+        }
+        return args;
+    }
+
+    private static Object defaultPrimitive(Class<?> c) {
+        if (c == boolean.class) return Boolean.FALSE;
+        if (c == byte.class)    return (byte) 0;
+        if (c == short.class)   return (short) 0;
+        if (c == int.class)     return 0;
+        if (c == long.class)    return 0L;
+        if (c == float.class)   return 0f;
+        if (c == double.class)  return 0d;
+        if (c == char.class)    return '\0';
+        return null;
+    }
+
+    private static Object resolveAsync(Object r) {
+        if (r == null) return null;
+        try {
+            if (r instanceof Future) {
+                return ((Future<?>) r).get(10, TimeUnit.SECONDS);
+            }
+            if (r instanceof CompletionStage) {
+                return ((CompletionStage<?>) r).toCompletableFuture()
+                    .get(10, TimeUnit.SECONDS);
+            }
+        } catch (Throwable ignored) {}
+        return r;
+    }
+
     private static void collectReferences(Object r, Class<?> refCls,
                                           List<Object> out) {
+        if (r == null) return;
         if (r instanceof Iterable) {
             for (Object o : (Iterable<?>) r) {
                 if (o != null && refCls.isInstance(o)) out.add(o);
@@ -261,6 +458,8 @@ public final class AdtTraverser {
                 Object o = java.lang.reflect.Array.get(r, i);
                 if (o != null && refCls.isInstance(o)) out.add(o);
             }
+        } else if (refCls.isInstance(r)) {
+            out.add(r);
         }
     }
 

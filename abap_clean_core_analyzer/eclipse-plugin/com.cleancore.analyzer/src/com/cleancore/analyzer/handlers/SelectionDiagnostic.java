@@ -75,6 +75,7 @@ public final class SelectionDiagnostic {
             appendIdentity(sb, node);
             appendActivePart(sb, activePart);
             appendAdapters(sb, node);
+            appendInterfaceMethods(sb, node);
             appendGetters(sb, node);
             appendContentProvider(sb, node, activePart);
         } catch (Throwable t) {
@@ -280,7 +281,189 @@ public final class SelectionDiagnostic {
                 sb.append("  Wrapper unwrap candidate    : <none>\n");
             }
         } catch (Throwable ignored) {}
+
+        // Direct repository objects (IAbapRepositoryObjectListProvider etc.)
+        try {
+            List<Object> direct = AdtTraverser.getDirectRepositoryObjects(node);
+            int n = direct == null ? 0 : direct.size();
+            sb.append("  Direct repo objects         : ").append(n).append("\n");
+            int show = Math.min(n, MAX_CHILDREN_SHOWN);
+            for (int i = 0; i < show; i++) {
+                Object ref = direct.get(i);
+                String type = AdtTraverser.getObjectType(ref);
+                String nm   = AdtTraverser.getObjectName(ref);
+                sb.append("    [").append(i).append("] ").append(type)
+                  .append(" / ").append(nm)
+                  .append("  uri=").append(AdtTraverser.getObjectUri(ref)).append("\n");
+            }
+        } catch (Throwable t) {
+            sb.append("  Direct repo objects         : <error: ")
+              .append(t.getClass().getSimpleName()).append(">\n");
+        }
+
+        // Resolved project (parent chain / active editor / workspace)
+        try {
+            org.eclipse.core.resources.IProject p =
+                AdtTraverser.resolveProjectAnyWay(node);
+            sb.append("  resolveProjectAnyWay        : ")
+              .append(p == null ? "<null>" : p.getName())
+              .append("\n");
+        } catch (Throwable t) {
+            sb.append("  resolveProjectAnyWay        : <error: ")
+              .append(t.getClass().getSimpleName()).append(">\n");
+        }
+
         sb.append("\n");
+    }
+
+    // ── Section: Interface method snapshot ───────────────────────────
+
+    /**
+     * For every implemented interface whose simple name contains "Object",
+     * "Repository", "Reference" or "Provider", list every declared method
+     * and (if zero / single-IProgressMonitor parameter) invoke it. Show the
+     * resulting collection/array size or a short summary of any other
+     * value. This is the section that pinpoints which ADT method actually
+     * exposes the package's object list.
+     */
+    private static void appendInterfaceMethods(StringBuilder sb, Object node) {
+        sb.append("=== Interface Method Snapshot ===\n");
+        if (node == null) { sb.append("<null>\n\n"); return; }
+
+        Set<Class<?>> ifaces = new LinkedHashSet<>();
+        collectAllInterfaces(node.getClass(), ifaces);
+
+        for (Class<?> i : ifaces) {
+            String n = i.getName().toLowerCase();
+            if (!(n.contains("object") || n.contains("repository")
+                  || n.contains("reference") || n.contains("provider"))) continue;
+            sb.append("--- ").append(i.getName()).append(" ---\n");
+            try {
+                Set<String> seen = new HashSet<>();
+                for (java.lang.reflect.Method m : i.getMethods()) {
+                    String sig = m.getName() + "(" + m.getParameterCount() + ")";
+                    if (!seen.add(sig)) continue;
+                    appendMethodProbe(sb, node, m);
+                }
+                for (java.lang.reflect.Method m : i.getDeclaredMethods()) {
+                    String sig = m.getName() + "(" + m.getParameterCount() + ")";
+                    if (!seen.add(sig)) continue;
+                    appendMethodProbe(sb, node, m);
+                }
+            } catch (Throwable t) {
+                sb.append("  <iteration error: ")
+                  .append(t.getClass().getSimpleName()).append(">\n");
+            }
+        }
+        sb.append("\n");
+    }
+
+    private static void collectAllInterfaces(Class<?> c, Set<Class<?>> out) {
+        while (c != null && !c.equals(Object.class)) {
+            for (Class<?> i : c.getInterfaces()) {
+                if (out.add(i)) collectAllInterfaces(i, out);
+            }
+            c = c.getSuperclass();
+        }
+    }
+
+    private static void appendMethodProbe(StringBuilder sb, Object node,
+                                          java.lang.reflect.Method m) {
+        sb.append("  ").append(m.getName()).append("(");
+        Class<?>[] pts = m.getParameterTypes();
+        for (int j = 0; j < pts.length; j++) {
+            if (j > 0) sb.append(",");
+            sb.append(pts[j].getSimpleName());
+        }
+        sb.append("): ").append(m.getReturnType().getSimpleName());
+
+        Object[] args = canInvoke(m);
+        if (args == null) {
+            sb.append("  [skipped — unsupported args]\n");
+            return;
+        }
+        try {
+            m.setAccessible(true);
+            Object r = m.invoke(node, args);
+            if (r instanceof java.util.concurrent.Future) {
+                try {
+                    r = ((java.util.concurrent.Future<?>) r)
+                        .get(5, java.util.concurrent.TimeUnit.SECONDS);
+                    sb.append(" [Future resolved]");
+                } catch (Throwable t) {
+                    sb.append(" [Future timeout/err: ")
+                      .append(t.getClass().getSimpleName()).append("]");
+                }
+            } else if (r instanceof java.util.concurrent.CompletionStage) {
+                try {
+                    r = ((java.util.concurrent.CompletionStage<?>) r)
+                        .toCompletableFuture()
+                        .get(5, java.util.concurrent.TimeUnit.SECONDS);
+                    sb.append(" [CompletionStage resolved]");
+                } catch (Throwable t) {
+                    sb.append(" [CS timeout/err: ")
+                      .append(t.getClass().getSimpleName()).append("]");
+                }
+            }
+            sb.append(" = ").append(describeValue(r)).append("\n");
+        } catch (Throwable t) {
+            sb.append("  threw ").append(t.getClass().getSimpleName()).append("\n");
+        }
+    }
+
+    private static Object[] canInvoke(java.lang.reflect.Method m) {
+        Class<?>[] pts = m.getParameterTypes();
+        Object[] args = new Object[pts.length];
+        for (int i = 0; i < pts.length; i++) {
+            Class<?> p = pts[i];
+            if (org.eclipse.core.runtime.IProgressMonitor.class.isAssignableFrom(p)) {
+                args[i] = new org.eclipse.core.runtime.NullProgressMonitor();
+            } else if (p.isPrimitive()) {
+                if (p == boolean.class) args[i] = Boolean.FALSE;
+                else if (p == int.class) args[i] = 0;
+                else if (p == long.class) args[i] = 0L;
+                else if (p == double.class) args[i] = 0d;
+                else if (p == float.class) args[i] = 0f;
+                else if (p == short.class) args[i] = (short) 0;
+                else if (p == byte.class) args[i] = (byte) 0;
+                else if (p == char.class) args[i] = '\0';
+                else return null;
+            } else if (p.equals(String.class)) {
+                args[i] = "";
+            } else {
+                return null;
+            }
+        }
+        return args;
+    }
+
+    private static String describeValue(Object v) {
+        if (v == null) return "null";
+        Class<?> c = v.getClass();
+        if (c.isArray()) {
+            int n = java.lang.reflect.Array.getLength(v);
+            return "array[" + n + "]"
+                + (n > 0
+                    ? " of " + (java.lang.reflect.Array.get(v, 0) == null
+                                ? "null"
+                                : java.lang.reflect.Array.get(v, 0).getClass().getName())
+                    : "");
+        }
+        if (v instanceof java.util.Collection) {
+            java.util.Collection<?> col = (java.util.Collection<?>) v;
+            int n = col.size();
+            String first = "";
+            if (n > 0) {
+                Object f = col.iterator().next();
+                first = " of " + (f == null ? "null" : f.getClass().getName());
+            }
+            return c.getSimpleName() + "[" + n + "]" + first;
+        }
+        if (v instanceof String) {
+            String s = (String) v;
+            return "\"" + (s.length() > 80 ? s.substring(0, 80) + "..." : s) + "\"";
+        }
+        return c.getName() + " (toString=" + truncate(safeToString(v)) + ")";
     }
 
     // ── Section: Reflective no-arg getter snapshot ───────────────────
