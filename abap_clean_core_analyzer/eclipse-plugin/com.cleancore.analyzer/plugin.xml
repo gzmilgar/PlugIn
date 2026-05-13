@@ -6,7 +6,12 @@
       <command
             id="com.cleancore.analyzer.analyzeCommand"
             name="Analyze for Clean Core"
-            description="Analyze ABAP source code for Clean Core compliance">
+            description="Analyze active ABAP editor for Clean Core compliance">
+      </command>
+      <command
+            id="com.cleancore.analyzer.analyzePackageCommand"
+            name="Analyze Package for Clean Core"
+            description="Analyze all ABAP objects under the selected package / objects">
       </command>
    </extension>
 
@@ -14,6 +19,10 @@
       <handler
             commandId="com.cleancore.analyzer.analyzeCommand"
             class="com.cleancore.analyzer.handlers.AnalyzeHandler">
+      </handler>
+      <handler
+            commandId="com.cleancore.analyzer.analyzePackageCommand"
+            class="com.cleancore.analyzer.handlers.PackageAnalyzeHandler">
       </handler>
    </extension>
 
@@ -26,6 +35,11 @@
                   label="Analyze Current File"
                   style="push">
             </command>
+            <command
+                  commandId="com.cleancore.analyzer.analyzePackageCommand"
+                  label="Analyze Selected Package / Objects"
+                  style="push">
+            </command>
          </menu>
       </menuContribution>
       <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
@@ -33,6 +47,21 @@
                commandId="com.cleancore.analyzer.analyzeCommand"
                label="Analyze for Clean Core"
                style="push">
+            <visibleWhen checkEnabled="false">
+               <with variable="activeEditor">
+                  <instanceof value="org.eclipse.ui.IEditorPart"/>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="com.cleancore.analyzer.analyzePackageCommand"
+               label="Analyze Package for Clean Core"
+               style="push">
+            <visibleWhen checkEnabled="false">
+               <with variable="selection">
+                  <count value="+"/>
+               </with>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>
@@ -42,6 +71,11 @@
             commandId="com.cleancore.analyzer.analyzeCommand"
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="Ctrl+Shift+K">
+      </key>
+      <key
+            commandId="com.cleancore.analyzer.analyzePackageCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+L">
       </key>
    </extension>
 

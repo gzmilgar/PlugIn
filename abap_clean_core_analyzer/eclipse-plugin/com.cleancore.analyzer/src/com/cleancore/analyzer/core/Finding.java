@@ -12,6 +12,7 @@ public class Finding {
     private final String matchedText;
     private final String cleanCoreApi;
     private double effortDays;
+    private String objectName;
 
     public Finding(String ruleId, String ruleName, Severity severity, Category category,
                    String message, String suggestion, int lineStart, int lineEnd,
@@ -27,6 +28,7 @@ public class Finding {
         this.matchedText = matchedText;
         this.cleanCoreApi = cleanCoreApi;
         this.effortDays = 0;
+        this.objectName = "";
     }
 
     public String getRuleId() { return ruleId; }
@@ -41,4 +43,6 @@ public class Finding {
     public String getCleanCoreApi() { return cleanCoreApi; }
     public double getEffortDays() { return effortDays; }
     public void setEffortDays(double days) { this.effortDays = days; }
+    public String getObjectName() { return objectName; }
+    public void setObjectName(String name) { this.objectName = name != null ? name : ""; }
 }

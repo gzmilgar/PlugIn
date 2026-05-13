@@ -61,6 +61,14 @@ public class CleanCoreResultView extends ViewPart {
     }
 
     private void createColumns() {
+        addColumn("Object", 140, new ColumnLabelProvider() {
+            @Override
+            public String getText(Object element) {
+                String n = ((Finding) element).getObjectName();
+                return (n == null || n.isEmpty()) ? "-" : n;
+            }
+        });
+
         addColumn("Severity", 80, new ColumnLabelProvider() {
             @Override
             public String getText(Object element) {
@@ -164,11 +172,21 @@ public class CleanCoreResultView extends ViewPart {
         long warning = findings.stream().filter(f -> f.getSeverity() == Severity.WARNING).count();
         long info = findings.stream().filter(f -> f.getSeverity() == Severity.INFO).count();
 
+        long distinctObjects = findings.stream()
+            .map(Finding::getObjectName)
+            .filter(n -> n != null && !n.isEmpty())
+            .distinct()
+            .count();
+
         double totalEffort = findings.stream().mapToDouble(Finding::getEffortDays).sum();
 
+        String objectInfo = distinctObjects > 0
+            ? String.format("  |  %d obje", distinctObjects)
+            : "";
+
         String summary = String.format(
-            "%s  |  Critical: %d   Warning: %d   Info: %d   Total: %d",
-            fileName, critical, warning, info, findings.size());
+            "%s%s  |  Critical: %d   Warning: %d   Info: %d   Total: %d",
+            fileName, objectInfo, critical, warning, info, findings.size());
         summaryLabel.setText(summary);
 
         String effortText = String.format(

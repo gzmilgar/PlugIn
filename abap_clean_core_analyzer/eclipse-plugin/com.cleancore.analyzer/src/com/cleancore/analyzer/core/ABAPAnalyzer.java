@@ -186,6 +186,31 @@ public class ABAPAnalyzer {
         return findings;
     }
 
+    /**
+     * Birden cok ABAP objesini topluca analiz eder.
+     * Her finding'e ait olduğu obje adi (objectName) eklenir.
+     *
+     * @param objectSources key: obje adi (ZCL_FOO, ZPROG_BAR vs.), value: kaynak kod
+     * @return tum bulgular tek listede (objectName field'i set edilmis halde)
+     */
+    public List<Finding> analyzeMultiple(Map<String, String> objectSources) {
+        List<Finding> all = new ArrayList<>();
+        if (objectSources == null || objectSources.isEmpty()) {
+            return all;
+        }
+        for (Map.Entry<String, String> entry : objectSources.entrySet()) {
+            String objName = entry.getKey();
+            String source = entry.getValue();
+            if (source == null || source.trim().isEmpty()) continue;
+            List<Finding> partial = analyze(source);
+            for (Finding f : partial) {
+                f.setObjectName(objName);
+            }
+            all.addAll(partial);
+        }
+        return all;
+    }
+
     private Map<String, String> loadMergedMapping() {
         Map<String, String> merged = new HashMap<>(BUILTIN_MAP);
 
