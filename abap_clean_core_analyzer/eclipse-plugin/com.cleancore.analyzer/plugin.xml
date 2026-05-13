@@ -11,7 +11,7 @@
       <command
             id="com.cleancore.analyzer.analyzePackageCommand"
             name="Analyze Package for Clean Core"
-            description="Analyze all ABAP objects under the selected package / objects">
+            description="Recursively analyze a SAP package and all its child packages / objects (Classes, Programs, Function Modules, Includes)">
       </command>
    </extension>
 

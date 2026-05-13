@@ -4,9 +4,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -40,75 +42,81 @@ import com.cleancore.analyzer.core.Finding;
 import com.cleancore.analyzer.ui.CleanCoreResultView;
 
 /**
- * Handler for analyzing one or many ABAP objects/packages selected in the
+ * Handler for analysing one or many ABAP objects/packages selected in the
  * Project Explorer (ADT).
  *
- * Strategy:
- *   1. Adapt the selected element to an {@link IResource}.
- *      - IFile  -> read its content directly.
- *      - IContainer (package/folder) -> recurse into its members.
- *   2. Fall back to programmatically opening the object in an editor
- *      (works for ADT virtual nodes that are not real workspace resources)
- *      and reading the editor's document, then closing it.
- *   3. Collected source map is fed into {@link ABAPAnalyzer#analyzeMultiple}.
- *   4. Results are pushed into {@link CleanCoreResultView}.
+ * Two main modes:
+ *
+ *   1. Selected node is an ADT package (DEVC). We then use
+ *      {@link AdtTraverser} (reflection) to fetch package children via the
+ *      /sap/bc/adt/repository/nodestructure REST endpoint, recurse into
+ *      subpackages, and read every Class/Program/FunctionGroup/Include source
+ *      via the ADT REST {object}/source/main endpoint.
+ *
+ *   2. Selected node is a single ABAP object. We try:
+ *        a) ADT REST source endpoint (fastest)
+ *        b) Programmatically open it in an editor, read the document, close it
+ *        c) IResource adaptation (file-backed projects)
  */
 public class PackageAnalyzeHandler extends AbstractHandler {
-
-    private static final int MAX_OBJECTS = 500;
 
     @Override
     public Object execute(ExecutionEvent event) throws ExecutionException {
         ISelection sel = HandlerUtil.getCurrentSelection(event);
-        Shell shell = HandlerUtil.getActiveShell(event);
+        final Shell shell = HandlerUtil.getActiveShell(event);
 
         if (!(sel instanceof IStructuredSelection)
                 || ((IStructuredSelection) sel).isEmpty()) {
             MessageDialog.openWarning(shell, "Clean Core Analyzer",
-                "Lutfen Project Explorer'da bir ABAP paketi veya objesi secin,\n"
-                + "ardindan sag tik > Analyze Package for Clean Core islemini deneyin.");
+                "Lutfen Project Explorer'da bir ABAP paketi veya objesi secin.");
             return null;
         }
 
         final IStructuredSelection ss = (IStructuredSelection) sel;
+
+        // 1) Ask the user for the maximum number of objects to analyse.
+        final int limit = LimitInputDialog.prompt(shell);
+        if (limit < 0) return null; // user cancelled
+
         final Map<String, String> sources = new LinkedHashMap<>();
         final List<String> errors = new ArrayList<>();
+        final int[] processedCounter = new int[] { 0 };
 
         IProgressService progress = PlatformUI.getWorkbench().getProgressService();
         try {
             progress.busyCursorWhile(new IRunnableWithProgress() {
                 @Override
                 public void run(IProgressMonitor monitor) {
-                    monitor.beginTask("Kaynak kodlar toplaniyor...",
-                                      Math.max(ss.size(), 1));
+                    monitor.beginTask("ABAP objeleri toplaniyor...", limit);
                     for (Object obj : ss.toList()) {
                         if (monitor.isCanceled()) break;
-                        if (sources.size() >= MAX_OBJECTS) break;
+                        if (sources.size() >= limit) break;
                         try {
-                            collect(obj, sources, monitor);
+                            collectAny(obj, sources, errors, monitor, limit,
+                                       processedCounter);
                         } catch (Exception ex) {
                             errors.add(safeName(obj) + ": " + ex.getMessage());
                         }
-                        monitor.worked(1);
                     }
                     monitor.done();
                 }
             });
         } catch (Exception ignored) {
-            // user cancel or invocation issue - continue with what we have
+            // user cancel or runner failure - continue with what we have
         }
 
         if (sources.isEmpty()) {
-            String detail = errors.isEmpty()
+            final String detail = errors.isEmpty()
                 ? "Secilen elemanlardan kaynak kod okunamadi."
-                : "Hatalar:\n - " + String.join("\n - ", errors);
+                : "Hatalar:\n - " + String.join("\n - ",
+                    errors.subList(0, Math.min(errors.size(), 10)));
             MessageDialog.openWarning(shell, "Clean Core Analyzer",
                 "Secilen elemanlardan ABAP kaynak kodu okunamadi.\n\n"
                 + detail + "\n\n"
                 + "Oneriler:\n"
-                + "  1) Objeyi editor'de acin, ardindan Ctrl+Shift+K kullanin\n"
-                + "  2) Paket dugumunu degil, dogrudan class/program dugumunu sag tiklayin\n"
-                + "  3) Birden cok obje icin Ctrl/Shift ile coklu secim yapin");
+                + "  - Aktif ABAP projesinde olduğunuzdan emin olun (ADT baglantisi)\n"
+                + "  - Objeyi editor'de acin ve Ctrl+Shift+K kullanin\n"
+                + "  - Veya dogrudan class/program dugumunu sag tiklayin");
             return null;
         }
 
@@ -133,27 +141,138 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         return null;
     }
 
-    // ── Source collection ─────────────────────────────────────────────
+    // ── Top-level dispatch ───────────────────────────────────────────
 
-    private void collect(Object obj, Map<String, String> sources,
-                         IProgressMonitor monitor) {
-        // 1) IResource adapter (file-backed projects)
-        IResource resource = adaptToResource(obj);
+    private void collectAny(Object node, Map<String, String> sources,
+                            List<String> errors, IProgressMonitor monitor,
+                            int limit, int[] processed) {
+        if (node == null) return;
+
+        // Strategy A: ADT-aware (reflection)
+        Object adtRef = AdtTraverser.getAdtObjectReference(node);
+        if (adtRef != null) {
+            String type = AdtTraverser.getObjectType(adtRef);
+            String name = AdtTraverser.getObjectName(adtRef);
+            String destId = AdtTraverser.getDestinationId(node);
+
+            if (AdtTraverser.isPackage(type)) {
+                Set<String> visited = new HashSet<>();
+                traversePackage(name, destId, sources, errors, monitor,
+                                visited, limit, processed);
+                return;
+            }
+            if (AdtTraverser.isAnalyzable(type)) {
+                if (name != null && !sources.containsKey(name)) {
+                    String src = fetchSourceChain(adtRef, node, destId, name);
+                    if (src != null && !src.trim().isEmpty()) {
+                        sources.put(name, src);
+                    } else {
+                        errors.add(name + ": kaynak kod okunamadi");
+                    }
+                }
+                updateMonitor(monitor, processed, name);
+                return;
+            }
+            // Interface/Table/DDLS etc. – filtered out by user choice
+            return;
+        }
+
+        // Strategy B: IResource adapter (file-backed projects)
+        IResource resource = adaptToResource(node);
         if (resource != null) {
-            collectFromResource(resource, sources, monitor);
+            collectFromResource(resource, sources, monitor, limit, processed);
             if (!sources.isEmpty()) return;
         }
 
-        // 2) Fallback: open the object in an editor, read document, close it
-        String name = extractName(obj);
-        if (name == null || name.isEmpty()) return;
-        if (sources.containsKey(name)) return;
+        // Strategy C: editor-based open/read/close (last resort)
+        String name = extractName(node);
+        if (name != null && !sources.containsKey(name)) {
+            String src = readSourceViaEditor(node);
+            if (src != null && !src.trim().isEmpty()) {
+                sources.put(name, src);
+            }
+        }
+        updateMonitor(monitor, processed, name);
+    }
 
-        String source = readSourceViaEditor(obj);
-        if (source != null && !source.trim().isEmpty()) {
-            sources.put(name, source);
+    // ── Package recursive traversal ──────────────────────────────────
+
+    private void traversePackage(String packageName, String destId,
+                                 Map<String, String> sources,
+                                 List<String> errors,
+                                 IProgressMonitor monitor,
+                                 Set<String> visited,
+                                 int limit, int[] processed) {
+        if (packageName == null || visited.contains(packageName)) return;
+        visited.add(packageName);
+        if (monitor.isCanceled() || sources.size() >= limit) return;
+
+        monitor.subTask("Paket okunuyor: " + packageName);
+        List<AdtRestParser.NodeInfo> children =
+            AdtTraverser.listPackageChildren(destId, packageName, monitor);
+
+        if (children == null || children.isEmpty()) {
+            errors.add(packageName + ": cocuk obje listelenemedi");
+            return;
+        }
+
+        for (AdtRestParser.NodeInfo child : children) {
+            if (monitor.isCanceled() || sources.size() >= limit) return;
+            String type = child.type;
+            String name = child.name;
+
+            if (AdtTraverser.isPackage(type)) {
+                traversePackage(name, destId, sources, errors,
+                                monitor, visited, limit, processed);
+                continue;
+            }
+            if (!AdtTraverser.isAnalyzable(type)) continue;
+            if (name == null || sources.containsKey(name)) continue;
+
+            monitor.subTask((processed[0] + 1) + " / " + limit + ": "
+                            + name + " (" + type + ")");
+            String src = AdtTraverser.fetchSource(destId, child, monitor);
+            if (src != null && !src.trim().isEmpty()) {
+                sources.put(name, src);
+            } else {
+                errors.add(name + ": kaynak kod okunamadi");
+            }
+            updateMonitor(monitor, processed, name);
         }
     }
+
+    private void updateMonitor(IProgressMonitor monitor, int[] processed,
+                               String name) {
+        processed[0]++;
+        try { monitor.worked(1); } catch (Exception ignored) {}
+    }
+
+    // ── Source fetch chain for single object ─────────────────────────
+
+    private String fetchSourceChain(Object adtRef, Object node,
+                                    String destId, String objectName) {
+        // 1. ADT REST
+        AdtRestParser.NodeInfo info = new AdtRestParser.NodeInfo(
+            AdtTraverser.getObjectType(adtRef),
+            objectName,
+            AdtTraverser.getObjectUri(adtRef));
+        String src = AdtTraverser.fetchSource(destId, info, null);
+        if (src != null && !src.trim().isEmpty()) return src;
+
+        // 2. Editor-based fallback
+        src = readSourceViaEditor(node);
+        if (src != null && !src.trim().isEmpty()) return src;
+
+        // 3. IResource
+        IResource res = adaptToResource(node);
+        if (res instanceof IFile) {
+            String content = readFileContent((IFile) res);
+            if (content != null && !content.trim().isEmpty()) return content;
+        }
+        return null;
+    }
+
+    // ── IResource path ───────────────────────────────────────────────
 
     private IResource adaptToResource(Object obj) {
         if (obj instanceof IResource) return (IResource) obj;
@@ -168,28 +287,30 @@ public class PackageAnalyzeHandler extends AbstractHandler {
 
     private void collectFromResource(IResource resource,
                                      Map<String, String> sources,
-                                     IProgressMonitor monitor) {
+                                     IProgressMonitor monitor,
+                                     int limit, int[] processed) {
+        if (sources.size() >= limit) return;
         if (resource instanceof IFile) {
             IFile file = (IFile) resource;
             if (!isAbapLike(file.getName())) return;
             String content = readFileContent(file);
             if (content != null && !content.trim().isEmpty()) {
                 String key = stripExt(file.getName());
-                sources.put(key, content);
+                if (!sources.containsKey(key)) {
+                    sources.put(key, content);
+                    updateMonitor(monitor, processed, key);
+                }
             }
         } else if (resource instanceof IContainer) {
             try {
                 IContainer container = (IContainer) resource;
                 if (!container.isAccessible()) return;
-                IResource[] children = container.members();
-                for (IResource child : children) {
+                for (IResource child : container.members()) {
                     if (monitor.isCanceled()) return;
-                    if (sources.size() >= MAX_OBJECTS) return;
-                    collectFromResource(child, sources, monitor);
+                    if (sources.size() >= limit) return;
+                    collectFromResource(child, sources, monitor, limit, processed);
                 }
-            } catch (Exception ignored) {
-                // container not accessible - skip
-            }
+            } catch (Exception ignored) {}
         }
     }
 
@@ -225,7 +346,7 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         }
     }
 
-    // ── Editor-based fallback (ADT virtual nodes) ─────────────────────
+    // ── Editor-based fallback ────────────────────────────────────────
 
     private String readSourceViaEditor(final Object selObj) {
         final String[] result = new String[1];
@@ -251,7 +372,6 @@ public class PackageAnalyzeHandler extends AbstractHandler {
                     if (opened == null) return;
                     result[0] = getEditorText(opened);
                 } catch (Exception ignored) {
-                    // editor could not be opened - skip
                 } finally {
                     if (opened != null && page != null) {
                         try { page.closeEditor(opened, false); } catch (Exception ignored2) {}
@@ -292,7 +412,6 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         IDocument doc = editor.getAdapter(IDocument.class);
         if (doc != null) return doc.get();
 
-        // reflective getDocumentProvider()
         try {
             Method gdp = editor.getClass().getMethod("getDocumentProvider");
             Object dp = gdp.invoke(editor);
@@ -302,7 +421,6 @@ public class PackageAnalyzeHandler extends AbstractHandler {
             }
         } catch (Exception ignored) {}
 
-        // reflective getSourceViewer()
         try {
             Method gsv = findMethod(editor.getClass(), "getSourceViewer");
             if (gsv != null) {
@@ -334,11 +452,16 @@ public class PackageAnalyzeHandler extends AbstractHandler {
         return null;
     }
 
-    // ── Name extraction (reflective, covers ADT internal types) ───────
+    // ── Name extraction (reflective) ─────────────────────────────────
 
     private String extractName(Object obj) {
         if (obj == null) return "";
         if (obj instanceof IResource) return stripExt(((IResource) obj).getName());
+        Object adtRef = AdtTraverser.getAdtObjectReference(obj);
+        if (adtRef != null) {
+            String n = AdtTraverser.getObjectName(adtRef);
+            if (n != null && !n.isEmpty()) return n;
+        }
         for (String mname : new String[]{
                 "getName", "getElementName", "getDisplayName",
                 "getObjectName", "getAdtObjectName" }) {

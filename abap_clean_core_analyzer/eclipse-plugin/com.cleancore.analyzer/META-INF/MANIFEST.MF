@@ -12,7 +12,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jface.text,
  org.eclipse.ui.ide,
  org.eclipse.ui.workbench.texteditor,
- org.eclipse.ui.navigator;resolution:=optional
+ org.eclipse.ui.navigator;resolution:=optional,
+ com.sap.adt.tools.core;resolution:=optional,
+ com.sap.adt.communication;resolution:=optional,
+ com.sap.adt.tools.abapsource;resolution:=optional
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: com.cleancore.analyzer
 Bundle-ActivationPolicy: lazy
